@@ -9,7 +9,7 @@
 
 "--------------- 制御 ---------------
 " VIM互換にしない
-set nocompatible
+"  //NeoBundleの兼ね合いで下の方に移動
 " バックアップ作らない
 set nobackup
 " OSのクリップボードを使用する
@@ -37,9 +37,7 @@ set title
 " 括弧入力時に対応する括弧を表示
 set showmatch
 " 構文ハイライト
-syntax on
-filetype plugin on
-filetype indent on
+"  //NeoBundleの兼ね合いで最下部に移動
 " タブの画面上での幅
 set tabstop=4
 " 自動インデント
@@ -159,3 +157,32 @@ set incsearch
 imap <C-Enter> &br;<Enter>
 " 年-月-日&br;&br;
 imap <C-D> <C-R>=strftime("%Y-%m-%d")<Enter><C-Enter><C-Enter>
+
+"--------------- NeoBundle ---------------
+if has('vim_starting')
+	" VIM互換にしない
+	set nocompatible
+	set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+" neobundle.vimの初期化 
+call neobundle#rc(expand('~/.vim/bundle'))
+" NeoBundleを更新するための設定
+NeoBundleFetch 'Shougo/neobundle.vim'
+" plugins
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
+NeoBundle 'elzr/vim-json'
+" インストールのチェック
+NeoBundleCheck
+
+" 構文ハイライト
+syntax on
+filetype plugin indent on
+filetype indent on
+
