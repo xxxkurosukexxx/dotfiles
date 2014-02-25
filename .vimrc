@@ -179,6 +179,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'ytsunetsune/vim-pukiwiki-syntax'
 " インストールのチェック
 NeoBundleCheck
 
