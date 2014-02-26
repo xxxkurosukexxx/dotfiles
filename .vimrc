@@ -218,6 +218,13 @@ let NERDTreeShowHidden = 1
 "  WindowsのgVimでNERD Treeプラグインのファイルコピーをちゃんと動かしたい - Qiita http://qiita.com/akase244/items/ad26efec8dcddded8e73
 let g:NERDTreeCopyCmd= 'cp -r '
 
+"--------------- Trinity ---------------
+" 引数なしで実行したとき、TrinityToggleAllを実行する
+let file_name = expand("%:p")
+if has('vim_starting') &&  file_name == ""
+    autocmd VimEnter * execute 'TrinityToggleAll'
+endif
+
 "--------------- PHP ---------------
 " ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
 " 文字列の中のSQLをハイライト
