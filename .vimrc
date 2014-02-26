@@ -189,6 +189,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nono/jquery.vim'
+NeoBundle 'mhinz/vim-startify'
 " インストールのチェック
 NeoBundleCheck
 
@@ -197,3 +198,7 @@ syntax on
 filetype plugin indent on
 filetype indent on
 
+"--------------- startify ---------------
+let g:startify_bookmarks = [ 
+	\ '~/.vimrc',
+\ ]
