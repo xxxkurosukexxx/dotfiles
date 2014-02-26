@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/02/21
+"-- Ver. 2014/02/26
 "--
 "----------------------------------------
 
