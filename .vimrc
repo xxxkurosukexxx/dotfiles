@@ -54,7 +54,12 @@ set scrolloff=5
 "highlight Normal ctermbg=black ctermfg=grey
 "highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
 "highlight CursorLine term=none cterm=none ctermfg=none ctermbg=none
+" 256色表示
+set t_Co=256
 colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+set background=dark
 " 折り返さない //2014.01.06 update.
 "set nowrap
 " カーソル行強調
