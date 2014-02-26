@@ -190,6 +190,11 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'wesleyche/Trinity'
+NeoBundle 'wesleyche/SrcExpl'
+NeoBundle 'taglist.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'shawncplus/php.vim'
 " インストールのチェック
 NeoBundleCheck
 
@@ -199,6 +204,28 @@ filetype plugin indent on
 filetype indent on
 
 "--------------- startify ---------------
+" bookmark設定
 let g:startify_bookmarks = [ 
 	\ '~/.vimrc',
 \ ]
+
+"--------------- NERDTree ---------------
+" 最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" 隠しファイルも表示
+let NERDTreeShowHidden = 1
+" copyコマンド
+"  WindowsのgVimでNERD Treeプラグインのファイルコピーをちゃんと動かしたい - Qiita http://qiita.com/akase244/items/ad26efec8dcddded8e73
+let g:NERDTreeCopyCmd= 'cp -r '
+
+"--------------- PHP ---------------
+" ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
+" 文字列の中のSQLをハイライト
+let php_sql_query = 1
+" HTMLもハイライト
+let php_htmlInStrings = 1
+" <? を無効にする→ハイライト除外にする
+let php_noShortTags = 1
+" ] や ) の対応エラーをハイライト
+let php_parent_error_close = 1
+let php_parent_error_open = 1
