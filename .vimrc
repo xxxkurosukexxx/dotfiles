@@ -203,6 +203,12 @@ syntax on
 filetype plugin indent on
 filetype indent on
 
+if has('vim_starting')
+	autocmd VimEnter * execute 'Startify'
+	autocmd VimEnter * execute 'Tlist'
+	autocmd VimEnter * execute 'NERDTreeToggle'
+endif
+
 "--------------- startify ---------------
 " bookmark設定
 let g:startify_bookmarks = [ 
@@ -216,14 +222,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeShowHidden = 1
 " copyコマンド
 "  WindowsのgVimでNERD Treeプラグインのファイルコピーをちゃんと動かしたい - Qiita http://qiita.com/akase244/items/ad26efec8dcddded8e73
-let g:NERDTreeCopyCmd= 'cp -r '
+let g:NERDTreeCopyCmd    = 'cp -r '
+let g:NERDTreeWinSize    = 45
+let g:NERDTreeWinPos     = "left"
+let g:NERDTreeAutoCenter = 0
 
-"--------------- Trinity ---------------
-" 引数なしで実行したとき、TrinityToggleAllを実行する
-let file_name = expand("%:p")
-if has('vim_starting') &&  file_name == ""
-    autocmd VimEnter * execute 'TrinityToggleAll'
-endif
+"--------------- Taglist ---------------
+let g:Tlist_Use_Right_Window     = 1
+let g:Tlist_Sort_Type            = "order"
+let g:Tlist_Compact_Format       = 1
+let g:Tlist_Exit_OnlyWindow      = 1
+let g:Tlist_File_Fold_Auto_Close = 1
+let g:Tlist_Enable_Fold_Column   = 0
+let g:Tlist_Show_One_File        = 1
 
 "--------------- PHP ---------------
 " ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
