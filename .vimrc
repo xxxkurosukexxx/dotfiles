@@ -180,6 +180,10 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'ytsunetsune/vim-pukiwiki-syntax'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'nono/jquery.vim'
 " インストールのチェック
 NeoBundleCheck
 
