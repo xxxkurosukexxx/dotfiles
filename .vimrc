@@ -203,8 +203,11 @@ syntax on
 filetype plugin indent on
 filetype indent on
 
+let file_name = expand("%:p")
 if has('vim_starting')
-	autocmd VimEnter * execute 'Startify'
+	if (file_name == "")
+		autocmd VimEnter * execute 'Startify'
+	endif
 	autocmd VimEnter * execute 'Tlist'
 	autocmd VimEnter * execute 'NERDTreeToggle'
 endif
