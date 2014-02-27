@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/02/26
+"-- Ver. 2014/02/27
 "--
 "----------------------------------------
 
@@ -229,6 +229,12 @@ let g:NERDTreeCopyCmd    = 'cp -r '
 let g:NERDTreeWinSize    = 45
 let g:NERDTreeWinPos     = "left"
 let g:NERDTreeAutoCenter = 0
+" <C-e>でToggleする。
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-e>      :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 
 "--------------- Taglist ---------------
 let g:Tlist_Use_Right_Window     = 1
