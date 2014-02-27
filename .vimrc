@@ -209,7 +209,7 @@ if has('vim_starting')
 		autocmd VimEnter * execute 'Startify'
 	endif
 	autocmd VimEnter * execute 'Tlist'
-	autocmd VimEnter * execute 'NERDTreeToggle'
+	autocmd VimEnter * execute 'NERDTree'
 endif
 
 "--------------- startify ---------------
@@ -226,15 +226,20 @@ let NERDTreeShowHidden = 1
 " copyコマンド
 "  WindowsのgVimでNERD Treeプラグインのファイルコピーをちゃんと動かしたい - Qiita http://qiita.com/akase244/items/ad26efec8dcddded8e73
 let g:NERDTreeCopyCmd    = 'cp -r '
+" 表示設定
 let g:NERDTreeWinSize    = 45
 let g:NERDTreeWinPos     = "left"
-let g:NERDTreeAutoCenter = 0
+let g:NERDTreeAutoCenter = 1
 " <C-e>でToggleする。
 nmap <silent> <C-e>      :NERDTreeToggle<CR>
 vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 omap <silent> <C-e>      :NERDTreeToggle<CR>
 imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+" 表示しないファイルの設定
+let g:NERDTreeIgnore = [
+	\ '\.swp$',
+\ ]
 
 "--------------- Taglist ---------------
 let g:Tlist_Use_Right_Window     = 1
