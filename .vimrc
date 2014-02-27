@@ -56,7 +56,7 @@ set scrolloff=5
 "highlight CursorLine term=none cterm=none ctermfg=none ctermbg=none
 " 256色表示
 set t_Co=256
-colorscheme molokai
+"colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
@@ -261,3 +261,4 @@ let php_noShortTags = 1
 " ] や ) の対応エラーをハイライト
 let php_parent_error_close = 1
 let php_parent_error_open = 1
+colorscheme molokai
