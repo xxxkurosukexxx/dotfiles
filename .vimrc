@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/02/27
+"-- Ver. 2014/03/04
 "--
 "----------------------------------------
 
@@ -195,6 +195,7 @@ NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'taglist.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'shawncplus/php.vim'
+NeoBundle 'tyru/open-browser.vim'
 " インストールのチェック
 NeoBundleCheck
 
@@ -262,3 +263,9 @@ let php_noShortTags = 1
 let php_parent_error_close = 1
 let php_parent_error_open = 1
 colorscheme molokai
+
+"--------------- open-browser.vim ---------------
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
