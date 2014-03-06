@@ -177,9 +177,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
+    \ 'cygwin'  : 'make -f make_cygwin.mak',
+    \ 'mac'     : 'make -f make_mac.mak',
+    \ 'unix'    : 'make -f make_unix.mak',
   \ },
 \ }
 NeoBundle 'elzr/vim-json'
@@ -196,6 +196,8 @@ NeoBundle 'taglist.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'shawncplus/php.vim'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'violetyk/neocomplete-php.vim'
 " インストールのチェック
 NeoBundleCheck
 
@@ -243,13 +245,14 @@ let g:NERDTreeIgnore = [
 \ ]
 
 "--------------- Taglist ---------------
+let g:Tlist_Auto_Update          = 1
 let g:Tlist_Use_Right_Window     = 1
 let g:Tlist_Sort_Type            = "order"
 let g:Tlist_Compact_Format       = 1
 let g:Tlist_Exit_OnlyWindow      = 1
 let g:Tlist_File_Fold_Auto_Close = 1
 let g:Tlist_Enable_Fold_Column   = 0
-let g:Tlist_Show_One_File        = 1
+let g:Tlist_Show_One_File        = 0
 
 "--------------- PHP ---------------
 " ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
@@ -262,10 +265,19 @@ let php_noShortTags = 1
 " ] や ) の対応エラーをハイライト
 let php_parent_error_close = 1
 let php_parent_error_open = 1
-colorscheme molokai
+" クラスと関数の折りたたみ
+let php_folding = 1
+
+let g:neocomplete_php_locale = 'ja'
 
 "--------------- open-browser.vim ---------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+
+
+" カラースキーム
+"  ※必ず一番最後に！
+colorscheme molokai
 
