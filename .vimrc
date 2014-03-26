@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/03/04
+"-- Ver. 2014/03/24
 "--
 "----------------------------------------
 
@@ -40,6 +40,9 @@ set showmatch
 "  //NeoBundleの兼ね合いで最下部に移動
 " タブの画面上での幅
 set tabstop=4
+" タブを挿入するときの幅
+set shiftwidth=4
+set softtabstop=0
 " 自動インデント
 set smartindent
 set autoindent
