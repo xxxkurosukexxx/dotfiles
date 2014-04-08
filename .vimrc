@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/03/24
+"-- Ver. 2014/04/08
 "--
 "----------------------------------------
 
@@ -186,7 +186,6 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 NeoBundle 'elzr/vim-json'
-NeoBundle 'tomasr/molokai'
 NeoBundle 'ytsunetsune/vim-pukiwiki-syntax'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'othree/html5.vim'
@@ -201,6 +200,11 @@ NeoBundle 'shawncplus/php.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'
+""colorscheme---
+NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'github-theme'
+NeoBundle 'cocopon/iceberg.vim'
 " インストールのチェック
 NeoBundleCheck
 
@@ -282,5 +286,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " カラースキーム
 "  ※必ず一番最後に！
-colorscheme molokai
+"colorscheme molokai
+colorscheme iceberg
 
