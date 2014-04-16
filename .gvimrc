@@ -42,3 +42,5 @@ set lines=55
 
 " https://github.com/cocopon/iceberg.vim
 colorscheme iceberg
+set background=light
+set background=dark

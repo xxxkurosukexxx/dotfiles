@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/04/08
+"-- Ver. 2014/04/16
 "--
 "----------------------------------------
 
@@ -200,6 +200,8 @@ NeoBundle 'shawncplus/php.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'kannokanno/previm'
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -226,6 +228,7 @@ endif
 " bookmark設定
 let g:startify_bookmarks = [ 
 	\ '~/.vimrc',
+	\ '~/.gvimrc',
 \ ]
 
 "--------------- NERDTree ---------------
@@ -282,10 +285,15 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+"--------------- memolist.vim ---------------
+map <Leader>ml  :MemoList<CR>
+map <Leader>mn  :MemoNew<CR>
+map <Leader>mg  :MemoGrep<CR>
 
 
 " カラースキーム
 "  ※必ず一番最後に！
 "colorscheme molokai
 colorscheme iceberg
-
+set background=light
+set background=dark
