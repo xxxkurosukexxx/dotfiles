@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/04/16
+"-- Ver. 2014/04/18
 "--
 "----------------------------------------
 
@@ -108,6 +108,10 @@ set statusline+=[L=%l/%L]
 set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}]
 " 現在行が全体行の何%目か表示
 set statusline+=[%p%%]
+" foldddddddd
+set foldmethod=syntax
+set foldlevel=2
+set foldcolumn=2
 
 "--------------- 自動文字数カウント ---------------
 augroup WordCount
