@@ -112,6 +112,13 @@ set statusline+=[%p%%]
 set foldmethod=syntax
 set foldlevel=2
 set foldcolumn=2
+" タブじゃなくスペース
+set expandtab
+set smarttab
+" □とか○の文字があってもカーソル位置がずれないようにする
+if exists('&ambiwidth')
+  set ambiwidth=double
+endif
 
 "--------------- 自動文字数カウント ---------------
 augroup WordCount
