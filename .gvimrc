@@ -3,7 +3,7 @@
 "-- .gvimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/04/08
+"-- Ver. 2014/04/18
 "--
 "----------------------------------------
 
@@ -19,8 +19,7 @@ set guioptions-=rL
 " 256色表示
 set t_Co=256
 " font
-"set guifont=VL\ Gothic:h9
-set guifont=VL\ Gothic:h10
+set guifont=VL\ Gothic:h9
 " ウィンドウサイズ
 set columns=200
 set lines=55

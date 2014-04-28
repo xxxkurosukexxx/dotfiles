@@ -3,7 +3,7 @@
 "-- .vimrc for @xxxkurosukexxx
 "-- http://twitter.com/xxxkurosukexxx
 "--
-"-- Ver. 2014/04/18
+"-- Ver. 2014/04/28
 "--
 "----------------------------------------
 
@@ -300,6 +300,9 @@ vmap gx <Plug>(openbrowser-smart-search)
 map <Leader>ml  :MemoList<CR>
 map <Leader>mn  :MemoNew<CR>
 map <Leader>mg  :MemoGrep<CR>
+
+"--------------- neocomplete.vim ---------------
+let g:neocomplete#enable_at_startup = 1
 
 
 " カラースキーム
