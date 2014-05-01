@@ -1,11 +1,15 @@
-"----------------------------------------
-"--
-"-- .vimrc for @xxxkurosukexxx
-"-- http://twitter.com/xxxkurosukexxx
-"--
-"-- Ver. 2014/04/28
-"--
-"----------------------------------------
+"------------------------------------------
+"--                                      --
+"--      .vimrc for @xxxkurosukexxx      --
+"--  https://twitter.com/xxxkurosukexxx  --
+"--                                      --
+"-- Copyright (c) 2014 xxxkurosukexxx    --
+"-- Released under the MIT license       --
+"-- See LICENSE.txt                      --
+"--                                      --
+"--                      Ver. 2014/05/01 --
+"--                                      --
+"------------------------------------------
 
 "--------------- 制御 ---------------
 " VIM互換にしない

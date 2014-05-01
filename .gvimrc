@@ -1,11 +1,15 @@
-"----------------------------------------
-"--
-"-- .gvimrc for @xxxkurosukexxx
-"-- http://twitter.com/xxxkurosukexxx
-"--
-"-- Ver. 2014/04/18
-"--
-"----------------------------------------
+"------------------------------------------
+"--                                      --
+"--     .gvimrc for @xxxkurosukexxx      --
+"--  https://twitter.com/xxxkurosukexxx  --
+"--                                      --
+"-- Copyright (c) 2014 xxxkurosukexxx    --
+"-- Released under the MIT license       --
+"-- See LICENSE.txt                      --
+"--                                      --
+"--                      Ver. 2014/05/01 --
+"--                                      --
+"------------------------------------------
 
 "--------------- guiから余計なものを排除 ---------------
 " ツールバー

@@ -2,6 +2,10 @@ dotfiles
 ========
 個人的な'.'で始まるファイルたち。
 
+Copyright (c) 2014 xxxkurosukexxx  
+Released under the MIT license  
+See [LICENSE.txt](https://github.com/xxxkurosukexxx/dotfiles/blob/master/LICENSE.txt)  
+
 .vimrc & .gvimrc
 -----------------
 ### require
