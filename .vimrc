@@ -16,6 +16,7 @@
 "  //NeoBundleの兼ね合いで下の方に移動
 " バックアップ作らない
 set nobackup
+set noundofile
 " OSのクリップボードを使用する
 set clipboard+=unnamed
 " utf-8
@@ -217,6 +218,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'leafgarland/typescript-vim'
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
