@@ -1,15 +1,15 @@
-"------------------------------------------
-"--                                      --
-"--      .vimrc for @xxxkurosukexxx      --
-"--  https://twitter.com/xxxkurosukexxx  --
-"--                                      --
-"-- Copyright (c) 2014 xxxkurosukexxx    --
-"-- Released under the MIT license       --
-"-- See LICENSE.txt                      --
-"--                                      --
-"--                      Ver. 2014/05/01 --
-"--                                      --
-"------------------------------------------
+"----------------------------------------------------
+"--                                                --
+"--           .vimrc for @xxxkurosukexxx           --
+"--       https://twitter.com/xxxkurosukexxx       --
+"--                                                --
+"--      Copyright (c) 2014 xxxkurosukexxx         --
+"--      Released under the MIT license            --
+"--      See LICENSE.txt                           --
+"--                                                --
+"--                                Ver. 2014/06/14 --
+"--                                                --
+"----------------------------------------------------
 
 "--------------- 制御 ---------------
 " VIM互換にしない
@@ -219,6 +219,8 @@ NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -309,6 +311,9 @@ map <Leader>mg  :MemoGrep<CR>
 
 "--------------- neocomplete.vim ---------------
 let g:neocomplete#enable_at_startup = 1
+
+"--------------- vim-indent-guides ---------------
+let g:indent_guides_enable_on_vim_startup = 1
 
 
 " カラースキーム
