@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2014/06/26 --
+"--                                Ver. 2014/07/13 --
 "--                                                --
 "----------------------------------------------------
 
@@ -29,6 +29,7 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 " 複数ファイルの編集を可能にする
 set hidden
+
 
 "--------------- 表示 --------------- {{{1
 " 行番号を表示
@@ -193,7 +194,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " plugins {{{2
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'windows' : 'make -f make_mingw64.mak',
     \ 'cygwin'  : 'make -f make_cygwin.mak',
     \ 'mac'     : 'make -f make_mac.mak',
     \ 'unix'    : 'make -f make_unix.mak',
@@ -219,6 +220,8 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
+"NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle 'mattn/benchvimrc-vim'
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -231,10 +234,10 @@ NeoBundleCheck
 let file_name = expand("%:p")
 if has('vim_starting')
 	if (file_name == "")
-		autocmd VimEnter * execute 'Startify'
+		"autocmd VimEnter * execute 'Startify'
 	endif
-	autocmd VimEnter * execute 'Tlist'
-	autocmd VimEnter * execute 'NERDTree'
+	"autocmd VimEnter * execute 'Tlist'
+	"autocmd VimEnter * execute 'NERDTree'
 endif
 
 "--------------- startify --------------- {{{3
@@ -256,6 +259,7 @@ let g:NERDTreeCopyCmd    = 'cp -r '
 let g:NERDTreeWinSize    = 45
 let g:NERDTreeWinPos     = "left"
 let g:NERDTreeAutoCenter = 1
+let g:NERDTreeDirArrows  = 0
 " <C-e>でToggleする。
 nmap <silent> <C-e>      :NERDTreeToggle<CR>
 vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
@@ -309,6 +313,9 @@ let g:neocomplete#enable_at_startup = 1
 
 "--------------- vim-indent-guides --------------- {{{3
 let g:indent_guides_enable_on_vim_startup = 1
+
+"--------------- vim-auto-save --------------- {{{3
+"let g:auto_save = 1
 
 " }}}1
 "--------------- 構文ハイライト --------------- {{{1
