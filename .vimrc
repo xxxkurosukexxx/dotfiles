@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2014/07/13 --
+"--                                Ver. 2015/01/19 --
 "--                                                --
 "----------------------------------------------------
 
@@ -188,9 +188,12 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 " neobundle.vimの初期化 
-call neobundle#rc(expand('~/.vim/bundle'))
+"call neobundle#rc(expand('~/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+
 " plugins {{{2
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -222,14 +225,15 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 "NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'dbext.vim'
+NeoBundle 'Simple-Javascript-Indenter'
 ""colorscheme---
-NeoBundle 'tomasr/molokai'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'github-theme'
+"NeoBundle 'tomasr/molokai'
+"NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
 " インストールのチェック
-NeoBundleCheck
-
+"NeoBundleCheck
 
 let file_name = expand("%:p")
 if has('vim_starting')
@@ -316,6 +320,15 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 "--------------- vim-auto-save --------------- {{{3
 "let g:auto_save = 1
+
+"--------------- vim-javascript --------------- {{{3
+let javascript_enable_domhtmlcss = 1
+
+"--------------- Simple-Javascript-Indenter --------------- {{{3
+" この設定入れるとshiftwidthを1にしてインデントしてくれる
+let g:SimpleJsIndenter_BriefMode = 1
+" この設定入れるとswitchのインデントがいくらかマシに
+let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 " }}}1
 "--------------- 構文ハイライト --------------- {{{1
