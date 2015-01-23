@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/01/19 --
+"--                                Ver. 2015/01/23 --
 "--                                                --
 "----------------------------------------------------
 
@@ -285,6 +285,8 @@ let g:Tlist_File_Fold_Auto_Close = 1
 let g:Tlist_Enable_Fold_Column   = 0
 let g:Tlist_Show_One_File        = 0
 map <Leader>t :Tlist<CR>
+"  JavaScriptのソースでTagListプラグインを使う時にしとくべき設定 - SELECT * FROM life; http://yuku-tech.hatenablog.com/entry/20111012/1318416494
+let g:tlist_javascript_settings  = 'javascript;c:class;m:method;F:function;p:property'
 
 "--------------- PHP --------------- {{{3
 " ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
