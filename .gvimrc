@@ -7,11 +7,11 @@
 "-- Released under the MIT license       --
 "-- See LICENSE.txt                      --
 "--                                      --
-"--                      Ver. 2014/05/01 --
+"--                      Ver. 2015/02/02 --
 "--                                      --
 "------------------------------------------
 
-"--------------- guiから余計なものを排除 ---------------
+"--------------- guiから余計なものを排除 --------------- {{{1
 " ツールバー
 set guioptions-=T
 " メニューバー
@@ -19,16 +19,19 @@ set guioptions-=m
 " スクロールバー（左右）
 set guioptions-=rL
 
-"--------------- 表示 ---------------
+
+"--------------- 表示 ---------------{{{1
 " 256色表示
 set t_Co=256
 " font
-set guifont=VL\ Gothic:h9
+set guifont=Consolas:h9
+set guifontwide=VL\ Gothic:h9
 " ウィンドウサイズ
 set columns=200
 set lines=55
 
-"--------------- スキーム ---------------
+
+"--------------- スキーム ---------------{{{1
 " https://github.com/tomasr/molokai
 "colorscheme molokai
 "let g:molokai_original = 1
@@ -47,3 +50,8 @@ set lines=55
 colorscheme iceberg
 set background=light
 set background=dark
+
+" }}}1
+
+
+" vim: foldmethod=marker

@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/01/23 --
+"--                                Ver. 2015/02/02 --
 "--                                                --
 "----------------------------------------------------
 
@@ -227,6 +227,7 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'dbext.vim'
 NeoBundle 'Simple-Javascript-Indenter'
+NeoBundle 'drmikehenry/vim-fontsize'
 ""colorscheme---
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'altercation/vim-colors-solarized'
