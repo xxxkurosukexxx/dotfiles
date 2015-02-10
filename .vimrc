@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/02/02 --
+"--                                Ver. 2015/02/10 --
 "--                                                --
 "----------------------------------------------------
 
@@ -187,7 +187,7 @@ if has('vim_starting')
 	set nocompatible
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
-" neobundle.vimの初期化 
+" neobundle.vimの初期化
 "call neobundle#rc(expand('~/.vim/bundle'))
 call neobundle#begin(expand('~/.vim/bundle'))
 " NeoBundleを更新するための設定
@@ -228,12 +228,14 @@ NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'dbext.vim'
 NeoBundle 'Simple-Javascript-Indenter'
 NeoBundle 'drmikehenry/vim-fontsize'
+NeoBundle 'bronson/vim-trailing-whitespace'
 ""colorscheme---
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
 " インストールのチェック
+" 　起動速度向上のためプラグイン追加時は手動で。:w
 "NeoBundleCheck
 
 let file_name = expand("%:p")
@@ -247,7 +249,7 @@ endif
 
 "--------------- startify --------------- {{{3
 " bookmark設定
-let g:startify_bookmarks = [ 
+let g:startify_bookmarks = [
 	\ '~/.vimrc',
 	\ '~/.gvimrc',
 \ ]
