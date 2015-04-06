@@ -1,5 +1,12 @@
 #!/bin/bash
 
+##################################################
+##
+## Install Vim with Lua.
+##   This is for myself...
+##
+##################################################
+
 echo "-------------------------"
 echo "- Install Vim with Lua. -"
 echo "-------------------------"
@@ -41,6 +48,21 @@ sudo make && sudo make install
 cd ~
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
+
+### --- linking ---
+
+if [ ! -e ~/.vimrc ]; then
+    ln -s ~/dotfiles/.vimrc ~/.vimrc
+fi
+
+##### --- for root... ---
+sudo mkdir -p /root/.vim/
+sudo ln -s ~/.vim/bundle /root/.vim/bundle
+sudo ln -s ~/.vimrc /root/.vimrc
+
+
+### --- finish! ---
 
 echo;
 vim --version
