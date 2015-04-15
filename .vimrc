@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/02/10 --
+"--                                Ver. 2015/04/15 --
 "--                                                --
 "----------------------------------------------------
 
@@ -29,6 +29,8 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 " 複数ファイルの編集を可能にする
 set hidden
+" nohlsearch
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 "--------------- 表示 --------------- {{{1
@@ -188,7 +190,6 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 " neobundle.vimの初期化
-"call neobundle#rc(expand('~/.vim/bundle'))
 call neobundle#begin(expand('~/.vim/bundle'))
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -203,32 +204,66 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix'    : 'make -f make_unix.mak',
   \ },
 \ }
+" A better JSON for Vim
 NeoBundle 'elzr/vim-json'
+" PukiWiki記法シンタックスハイライト
 NeoBundle 'ytsunetsune/vim-pukiwiki-syntax'
+" Add CSS3 syntax support
 NeoBundle 'hail2u/vim-css3-syntax'
+" HTML5 omnicomplete and syntax
 NeoBundle 'othree/html5.vim'
+" Vastly improved Javascript indentation and syntax support in Vim.
 NeoBundle 'pangloss/vim-javascript'
+" Syntax file for jQuery
 NeoBundle 'nono/jquery.vim'
+" A fancy start screen for Vim
 NeoBundle 'mhinz/vim-startify'
+" Source Explorer, TagList, NERD Tree to be an IDE
 NeoBundle 'wesleyche/Trinity'
+" exploring the source code based on tags
 NeoBundle 'wesleyche/SrcExpl'
+" ソースコード上のメソッド宣言、変数宣言の一覧を表示
 NeoBundle 'taglist.vim'
+" A tree explorer plugin for vim
 NeoBundle 'scrooloose/nerdtree'
+" PHP 5.4 syntax highlight for vim
 NeoBundle 'shawncplus/php.vim'
+" Open URI with your favorite browser
 NeoBundle 'tyru/open-browser.vim'
+" Next generation completion framework
 NeoBundle 'Shougo/neocomplete.vim'
+" The neocomplete source for PHP
 NeoBundle 'violetyk/neocomplete-php.vim'
+" simple memo plugin for Vim.
 NeoBundle 'glidenote/memolist.vim'
+" Realtime preview by Vim
 NeoBundle 'kannokanno/previm'
+" Typescript syntax files for Vim
 NeoBundle 'leafgarland/typescript-vim'
+" インデントに色を付けて見やすくする
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-"NeoBundle 'vim-scripts/vim-auto-save'
+" ログファイルを色づけしてくれる
+NeoBundle 'AnsiEsc.vim'
+" Automatically save changes to disk
+"NeoBundle 'vim-auto-save'
+" make benchmark result of your vimrc
 NeoBundle 'mattn/benchvimrc-vim'
+" Provides database access to many dbms
 NeoBundle 'dbext.vim'
-NeoBundle 'Simple-Javascript-Indenter'
+" A vim javascript indent script
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+" Adjust Gvim font size via keypresses
 NeoBundle 'drmikehenry/vim-fontsize'
+" 行末の半角スペースを可視化
 NeoBundle 'bronson/vim-trailing-whitespace'
+" 括弧囲みの編集操作
+NeoBundle 'tpope/vim-surround'
+" Smartyのシンタクスハイライト
+NeoBundle 'sifue/smarty.vim'
+" markdownのシンタクスハイライトのためのプラグイン
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
+
 ""colorscheme---
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'altercation/vim-colors-solarized'
