@@ -226,8 +226,8 @@ NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'taglist.vim'
 " A tree explorer plugin for vim
 NeoBundle 'scrooloose/nerdtree'
-" PHP 5.4 syntax highlight for vim
-NeoBundle 'shawncplus/php.vim'
+" PHP 5.6 syntax highlight for vim
+NeoBundle 'StanAngeloff/php.vim'
 " Open URI with your favorite browser
 NeoBundle 'tyru/open-browser.vim'
 " Next generation completion framework
