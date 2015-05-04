@@ -193,7 +193,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 " plugins {{{2
 NeoBundle 'Shougo/vimproc', {
@@ -272,6 +271,10 @@ NeoBundle 'cocopon/iceberg.vim'
 " インストールのチェック
 " 　起動速度向上のためプラグイン追加時は手動で。:w
 "NeoBundleCheck
+
+
+call neobundle#end()
+
 
 let file_name = expand("%:p")
 if has('vim_starting')

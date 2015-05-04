@@ -56,7 +56,14 @@ if [ ! -e ~/.vimrc ]; then
     ln -s ~/dotfiles/.vimrc ~/.vimrc
 fi
 
+
+##### --- init NeoBundle ---
+
+~/.vim/bundle/neobundle.vim/bin/neoinstall
+
+
 ##### --- for root... ---
+
 sudo mkdir -p /root/.vim/
 sudo ln -s ~/.vim/bundle /root/.vim/bundle
 sudo ln -s ~/.vimrc /root/.vimrc
