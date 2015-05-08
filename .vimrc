@@ -262,6 +262,8 @@ NeoBundle 'sifue/smarty.vim'
 " markdownのシンタクスハイライトのためのプラグイン
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
+" Blade用
+NeoBundle 'xsbeats/vim-blade'
 
 ""colorscheme---
 "NeoBundle 'tomasr/molokai'
