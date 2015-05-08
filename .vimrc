@@ -29,8 +29,6 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 " 複数ファイルの編集を可能にする
 set hidden
-" nohlsearch
-nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 
 "--------------- 表示 --------------- {{{1
@@ -182,6 +180,8 @@ set incsearch
 imap <C-Enter> &br;<Enter>
 " 年-月-日&br;&br;
 imap <C-D> <C-R>=strftime("%Y-%m-%d")<Enter><C-Enter><C-Enter>
+" nohlsearch
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "--------------- NeoBundle --------------- {{{1
 if has('vim_starting')
@@ -344,6 +344,16 @@ let php_parent_error_open = 1
 let php_folding = 1
 
 let g:neocomplete_php_locale = 'ja'
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
 
 "--------------- open-browser.vim --------------- {{{3
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
