@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/04/15 --
+"--                                Ver. 2015/05/12 --
 "--                                                --
 "----------------------------------------------------
 
@@ -23,13 +23,21 @@ set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set termencoding=utf-8
 if has('win32') || has('win64')
 	scriptencoding cp932 "WindowsでKaoriya GVimを使うので内部エンコーディングはcp932
+    set shellslash
 endif
 " LF
 set fileformat=unix
 set fileformats=unix,dos,mac
 " 複数ファイルの編集を可能にする
 set hidden
-
+" バックスペースでインデントや改行を削除できるようにする
+set backspace=indent,eol,start
+" コマンドライン補完するときに強化されたものを使う
+set wildmenu
+" splitした時下に
+set splitbelow
+" splitした時右に
+set splitright
 
 "--------------- 表示 --------------- {{{1
 " 行番号を表示
@@ -64,9 +72,9 @@ set scrolloff=5
 " 256色表示
 set t_Co=256
 "colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-set background=dark
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"set background=dark
 " 折り返さない //2014.01.06 update.
 "set nowrap
 " カーソル行強調
@@ -266,10 +274,11 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'xsbeats/vim-blade'
 
 ""colorscheme---
-"NeoBundle 'tomasr/molokai'
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'github-theme'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'w0ng/vim-hybrid'
 " インストールのチェック
 " 　起動速度向上のためプラグイン追加時は手動で。:w
 "NeoBundleCheck
@@ -394,9 +403,11 @@ filetype indent on
 "--------------- カラースキーム --------------- {{{1
 "  ※必ず一番最後に！
 "colorscheme molokai
-colorscheme iceberg
-set background=light
-set background=dark
+"colorscheme iceberg
+"set background=light
+"set background=dark
+colorscheme hybrid
+"colorscheme hybrid-light "←こっちは白背景なのでプロジェクターで映すときとかにいいかも？
 " }}}1
 
 

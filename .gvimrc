@@ -1,15 +1,15 @@
-"------------------------------------------
-"--                                      --
-"--     .gvimrc for @xxxkurosukexxx      --
-"--  https://twitter.com/xxxkurosukexxx  --
-"--                                      --
-"-- Copyright (c) 2014 xxxkurosukexxx    --
-"-- Released under the MIT license       --
-"-- See LICENSE.txt                      --
-"--                                      --
-"--                      Ver. 2015/02/02 --
-"--                                      --
-"------------------------------------------
+"----------------------------------------------------
+"--                                                --
+"--          .gvimrc for @xxxkurosukexxx           --
+"--       https://twitter.com/xxxkurosukexxx       --
+"--                                                --
+"--      Copyright (c) 2014 xxxkurosukexxx         --
+"--      Released under the MIT license            --
+"--      See LICENSE.txt                           --
+"--                                                --
+"--                                Ver. 2015/05/12 --
+"--                                                --
+"----------------------------------------------------
 
 "--------------- guiから余計なものを排除 --------------- {{{1
 " ツールバー
@@ -47,9 +47,13 @@ set lines=55
 "colorscheme github
 
 " https://github.com/cocopon/iceberg.vim
-colorscheme iceberg
-set background=light
-set background=dark
+"colorscheme iceberg
+"set background=light
+"set background=dark
+
+" https://github.com/w0ng/vim-hybrid
+colorscheme hybrid
+"colorscheme hybrid-light "←こっちは白背景なのでプロジェクターで映すときとかにいいかも？
 
 " }}}1
 
