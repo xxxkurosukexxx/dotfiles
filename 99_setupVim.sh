@@ -59,7 +59,7 @@ fi
 
 ##### --- init NeoBundle ---
 
-~/.vim/bundle/neobundle.vim/bin/neoinstall
+vim +NeoBundleInstall +qall
 
 
 ##### --- for root... ---
@@ -77,7 +77,6 @@ echo;
 
 echo;
 echo "...done!";
-echo "Run vim && :NeoBundleInstall";
 echo;
 
 exit;

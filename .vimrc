@@ -7,9 +7,13 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/05/12 --
+"--                                Ver. 2015/05/13 --
 "--                                                --
 "----------------------------------------------------
+
+" utf-8
+set encoding=utf-8
+scriptencoding utf-8
 
 "--------------- 制御 --------------- {{{1
 " バックアップ作らない
@@ -17,12 +21,10 @@ set nobackup
 set noundofile
 " OSのクリップボードを使用する
 set clipboard+=unnamed
-" utf-8
-set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set termencoding=utf-8
 if has('win32') || has('win64')
-	scriptencoding cp932 "WindowsでKaoriya GVimを使うので内部エンコーディングはcp932
+    scriptencoding cp932 "WindowsでKaoriya GVimを使うので内部エンコーディングはcp932
     set shellslash
 endif
 " LF
@@ -38,8 +40,9 @@ set wildmenu
 set splitbelow
 " splitした時右に
 set splitright
+"}}}
 
-"--------------- 表示 --------------- {{{1
+"--------------- 表示 --------------- {{{
 " 行番号を表示
 set number
 " ルーラーを表示
@@ -129,10 +132,11 @@ set expandtab
 set smarttab
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
-  set ambiwidth=double
+    set ambiwidth=double
 endif
+"}}}
 
-"--------------- 自動文字数カウント --------------- {{{1
+"--------------- 自動文字数カウント --------------- {{{
 augroup WordCount
     autocmd!
     autocmd BufWinEnter,InsertLeave,CursorHold * call WordCount('char')
@@ -164,16 +168,18 @@ function! WordCount(...)
     let v:statusmsg = s:saved_status
     return s:WordCountStr
 endfunction
+"}}}
 
-"--------------- JsonFormatter --------------- {{{1
+"--------------- JsonFormatter --------------- {{{
 " Vim (with python) で json を整形 - Qiita http://qiita.com/tomoemon/items/cc29b414a63e08cd4f89
 command! JsonFormat :execute '%!python -m json.tool'
-  \ | :execute '%!python -c "import re,sys;chr=__builtins__.__dict__.get(\"unichr\", chr);sys.stdout.write(re.sub(r\"\\u[0-9a-f]{4}\", lambda x: chr(int(\"0x\" + x.group(0)[2:], 16)), sys.stdin.read()))"'
-  \ | :%s/ \+$//ge
-  \ | :set ft=javascript
-  \ | :1
+            \ | :execute '%!python -c "import re,sys;chr=__builtins__.__dict__.get(\"unichr\", chr);sys.stdout.write(re.sub(r\"\\u[0-9a-f]{4}\", lambda x: chr(int(\"0x\" + x.group(0)[2:], 16)), sys.stdin.read()))"'
+            \ | :%s/ \+$//ge
+            \ | :set ft=javascript
+            \ | :1
+"}}}
 
-"--------------- 検索 --------------- {{{1
+"--------------- 検索 --------------- {{{
 " 検索時に大文字小文字を無視
 set ignorecase
 " 大文字小文字の両方が含まれている場合は大文字小文字を区別
@@ -182,35 +188,39 @@ set smartcase
 set wrapscan
 " インクリメンタルサーチ
 set incsearch
+"}}}
 
-"--------------- keyMap --------------- {{{1
+"--------------- keyMap --------------- {{{
 " Pukiwiki記法の改行
-imap <C-Enter> &br;<Enter>
+"inoremap <C-Enter> &br;<Enter>
 " 年-月-日&br;&br;
-imap <C-D> <C-R>=strftime("%Y-%m-%d")<Enter><C-Enter><C-Enter>
+"inoremap <C-D> <C-R>=strftime("%Y-%m-%d")<Enter><C-Enter><C-Enter>
 " nohlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+"}}}
 
-"--------------- NeoBundle --------------- {{{1
+"--------------- NeoBundle --------------- {{{
 if has('vim_starting')
-	" VIM互換にしない
-	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim
+    " VIM互換にしない 2015.05.13 vimrcアンチパターン - rbtnn雑記 http://rbtnn.hateblo.jp/entry/2014/11/30/174749
+    if &compatible
+        set nocompatible
+    endif
+    set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 " neobundle.vimの初期化
 call neobundle#begin(expand('~/.vim/bundle'))
 " NeoBundleを更新するための設定
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" plugins {{{2
+" plugins {{{
 NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw64.mak',
-    \ 'cygwin'  : 'make -f make_cygwin.mak',
-    \ 'mac'     : 'make -f make_mac.mak',
-    \ 'unix'    : 'make -f make_unix.mak',
-  \ },
-\ }
+            \ 'build' : {
+            \ 'windows' : 'make -f make_mingw64.mak',
+            \ 'cygwin'  : 'make -f make_cygwin.mak',
+            \ 'mac'     : 'make -f make_mac.mak',
+            \ 'unix'    : 'make -f make_unix.mak',
+            \ },
+            \ }
 " A better JSON for Vim
 NeoBundle 'elzr/vim-json'
 " PukiWiki記法シンタックスハイライト
@@ -272,6 +282,13 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 " Blade用
 NeoBundle 'xsbeats/vim-blade'
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'kmnk/vim-unite-svn'
+NeoBundle 'taka84u9/unite-git'
+" vimshell
+NeoBundle 'Shougo/vimshell.vim'
 
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
@@ -279,35 +296,38 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'w0ng/vim-hybrid'
+
 " インストールのチェック
 " 　起動速度向上のためプラグイン追加時は手動で。:w
 "NeoBundleCheck
 
-
 call neobundle#end()
+"}}}
 
+"未使用 {{{
+"let file_name = expand("%:p")
+"if has('vim_starting')
+"    if (file_name == "")
+"        "autocmd VimEnter * execute 'Startify'
+"    endif
+"    "autocmd VimEnter * execute 'Tlist'
+"    "autocmd VimEnter * execute 'NERDTree'
+"endif
+"}}}
 
-let file_name = expand("%:p")
-if has('vim_starting')
-	if (file_name == "")
-		"autocmd VimEnter * execute 'Startify'
-	endif
-	"autocmd VimEnter * execute 'Tlist'
-	"autocmd VimEnter * execute 'NERDTree'
-endif
-
-"--------------- startify --------------- {{{3
+"--------------- startify --------------- {{{
 " bookmark設定
 let g:startify_bookmarks = [
-	\ '~/.vimrc',
-	\ '~/.gvimrc',
-\ ]
+            \ '~/.vimrc',
+            \ '~/.gvimrc',
+            \ ]
+"}}}
 
-"--------------- NERDTree --------------- {{{3
+"--------------- NERDTree --------------- {{{
 " 最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 隠しファイルも表示
-let NERDTreeShowHidden = 1
+let g:NERDTreeShowHidden = 1
 " copyコマンド
 "  WindowsのgVimでNERD Treeプラグインのファイルコピーをちゃんと動かしたい - Qiita http://qiita.com/akase244/items/ad26efec8dcddded8e73
 let g:NERDTreeCopyCmd    = 'cp -r '
@@ -317,17 +337,18 @@ let g:NERDTreeWinPos     = "left"
 let g:NERDTreeAutoCenter = 1
 let g:NERDTreeDirArrows  = 0
 " <C-e>でToggleする。
-nmap <silent> <C-e>      :NERDTreeToggle<CR>
-vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-omap <silent> <C-e>      :NERDTreeToggle<CR>
-imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
+vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+onoremap <silent> <C-e>      :NERDTreeToggle<CR>
+inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " 表示しないファイルの設定
 let g:NERDTreeIgnore = [
-	\ '\.swp$',
-\ ]
+            \ '\.swp$',
+            \ ]
+"}}}
 
-"--------------- Taglist --------------- {{{3
+"--------------- Taglist --------------- {{{
 let g:Tlist_Auto_Update          = 1
 let g:Tlist_Use_Right_Window     = 1
 let g:Tlist_Sort_Type            = "order"
@@ -336,71 +357,97 @@ let g:Tlist_Exit_OnlyWindow      = 1
 let g:Tlist_File_Fold_Auto_Close = 1
 let g:Tlist_Enable_Fold_Column   = 0
 let g:Tlist_Show_One_File        = 0
-map <Leader>t :Tlist<CR>
+nnoremap <Leader>t :Tlist<CR>
 "  JavaScriptのソースでTagListプラグインを使う時にしとくべき設定 - SELECT * FROM life; http://yuku-tech.hatenablog.com/entry/20111012/1318416494
 let g:tlist_javascript_settings  = 'javascript;c:class;m:method;F:function;p:property'
+"}}}
 
-"--------------- PHP --------------- {{{3
+"--------------- PHP --------------- {{{
 " ssh上でマウススクロールも使える大規模PHP開発向けvim+tmux環境の構築 - しふーのブログ http://d.hatena.ne.jp/sifue/20130224/1361713497
 " 文字列の中のSQLをハイライト
-let php_sql_query = 1
+let g:php_sql_query = 1
 " HTMLもハイライト
-let php_htmlInStrings = 1
+let g:php_htmlInStrings = 1
 " <? を無効にする→ハイライト除外にする
-let php_noShortTags = 1
+let g:php_noShortTags = 1
 " ] や ) の対応エラーをハイライト
-let php_parent_error_close = 1
-let php_parent_error_open = 1
+let g:php_parent_error_close = 1
+let g:php_parent_error_open = 1
 " クラスと関数の折りたたみ
-let php_folding = 1
+let g:php_folding = 1
 
 let g:neocomplete_php_locale = 'ja'
 
 function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
 endfunction
 
 augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
 augroup END
+"}}}
 
-"--------------- open-browser.vim --------------- {{{3
+"--------------- open-browser.vim --------------- {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+noremap  gx <Plug>(openbrowser-smart-search)
+vnoremap gx <Plug>(openbrowser-smart-search)
+"}}}
 
-"--------------- memolist.vim --------------- {{{3
-map <Leader>ml  :MemoList<CR>
-map <Leader>mn  :MemoNew<CR>
-map <Leader>mg  :MemoGrep<CR>
+"--------------- memolist.vim --------------- {{{
+noremap <Leader>ml  :MemoList<CR>
+noremap <Leader>mn  :MemoNew<CR>
+noremap <Leader>mg  :MemoGrep<CR>
+"}}}
 
-"--------------- neocomplete.vim --------------- {{{3
+"--------------- neocomplete.vim --------------- {{{
 let g:neocomplete#enable_at_startup = 1
+"}}}
 
-"--------------- vim-indent-guides --------------- {{{3
+"--------------- vim-indent-guides --------------- {{{
 let g:indent_guides_enable_on_vim_startup = 1
+"}}}
 
-"--------------- vim-auto-save --------------- {{{3
+"--------------- vim-auto-save --------------- {{{
 "let g:auto_save = 1
+"}}}
 
-"--------------- vim-javascript --------------- {{{3
-let javascript_enable_domhtmlcss = 1
+"--------------- vim-javascript --------------- {{{
+let g:javascript_enable_domhtmlcss = 1
+"}}}
 
-"--------------- Simple-Javascript-Indenter --------------- {{{3
+"--------------- Simple-Javascript-Indenter --------------- {{{
 " この設定入れるとshiftwidthを1にしてインデントしてくれる
 let g:SimpleJsIndenter_BriefMode = 1
 " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
+"}}}
 
-" }}}1
-"--------------- 構文ハイライト --------------- {{{1
+"--------------- unite.vim --------------- {{{
+nnoremap [unite]   <Nop>
+nmap     <Space>u [unite]
+nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]y :<C-u>Unite<Space>history/yank<CR>
+nnoremap <silent> [unite]h :<C-u>Unite<Space>history/unite<CR>
+nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> ,vr :UniteResume<CR>
+let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_limit = 50
+let g:unite_source_history_yank_enable = 1
+"}}}
+
+"}}}
+
+"--------------- 構文ハイライト --------------- {{{
 syntax on
 filetype plugin indent on
-filetype indent on
+"}}}
 
-"--------------- カラースキーム --------------- {{{1
+"--------------- カラースキーム --------------- {{{
 "  ※必ず一番最後に！
 "colorscheme molokai
 "colorscheme iceberg
@@ -408,9 +455,6 @@ filetype indent on
 "set background=dark
 colorscheme hybrid
 "colorscheme hybrid-light "←こっちは白背景なのでプロジェクターで映すときとかにいいかも？
-" }}}1
+"}}}
 
-
-" vim: foldmethod=marker
-" vim: foldcolumn=3
-" vim: foldlevel=0
+" vim: foldmethod=marker foldcolumn=3 foldlevel=0
