@@ -12,6 +12,8 @@ Usage
 $ git clone https://github.com/xxxkurosukexxx/dotfiles ~/dotfiles
 $ ln -s ~/dotfiles/.vimrc ~/.vimrc
 $ ln -s ~/dotfiles/.vimshrc ~/.vimshrc
+$ mkdir -p ~/.vim/bundle
+$ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qall
 ```
 
