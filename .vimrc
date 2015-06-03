@@ -234,7 +234,7 @@ NeoBundle 'pangloss/vim-javascript'
 " Syntax file for jQuery
 NeoBundle 'nono/jquery.vim'
 " A fancy start screen for Vim
-NeoBundle 'mhinz/vim-startify'
+"NeoBundle 'mhinz/vim-startify'
 " Source Explorer, TagList, NERD Tree to be an IDE
 NeoBundle 'wesleyche/Trinity'
 " exploring the source code based on tags
@@ -287,6 +287,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'kmnk/vim-unite-svn'
 NeoBundle 'taka84u9/unite-git'
+NeoBundle 'ujihisa/unite-colorscheme'
 " vimshell
 NeoBundle 'Shougo/vimshell.vim'
 
@@ -317,10 +318,57 @@ call neobundle#end()
 
 "--------------- startify --------------- {{{
 " bookmark設定
-let g:startify_bookmarks = [
-            \ '~/.vimrc',
-            \ '~/.gvimrc',
-            \ ]
+"let g:startify_bookmarks = [
+"            \ '~/.vimrc',
+"            \ '~/.gvimrc',
+"            \ ]
+"}}}
+
+"--------------- UniteStartup --------------- {{{
+" vim-startify を unite.vim で代替してみる - C++でゲームプログラミング
+"  http://d.hatena.ne.jp/osyo-manga/20131217/1387292034
+let g:unite_source_alias_aliases = {
+            \   "startup_file_mru" : {
+            \       "source" : "file_mru",
+            \   },
+            \   "startup_directory_mru" : {
+            \       "source" : "directory_mru",
+            \   },
+            \}
+
+call unite#custom_max_candidates("startup_file_mru", 10)
+call unite#custom_max_candidates("startup_directory_mru", 5)
+
+if !exists("g:unite_source_menu_menus")
+    let g:unite_source_menu_menus = {}
+endif
+
+let g:unite_source_menu_menus.startup = {
+            \   "description" : "startup menu",
+            \   "command_candidates" : [
+            \       [ "edit",  "edit" ],
+            \       [ ".vimrc",  "edit " . $MYVIMRC ],
+            \       [ ".gvimrc", "edit " . $MYGVIMRC ],
+            \       [ "unite-file_mru", "Unite file_mru" ],
+            \       [ "unite-directory_mru", "Unite directory_mru" ],
+            \   ]
+            \}
+
+command! UniteStartup
+            \   Unite
+            \   output:echo:"===:file:mru:===":! startup_file_mru
+            \   output:echo:":":!
+            \   output:echo:"===:directory:mru:===":! startup_directory_mru
+            \   output:echo:":":!
+            \   output:echo:"===:menu:===":! menu:startup
+            \   -hide-source-names
+            \   -no-split
+            \   -quick-match
+
+augroup startup
+    autocmd!
+    autocmd VimEnter * nested :UniteStartup
+augroup END
 "}}}
 
 "--------------- NERDTree --------------- {{{
