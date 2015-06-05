@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/05/13 --
+"--                                Ver. 2015/06/05 --
 "--                                                --
 "----------------------------------------------------
 
@@ -367,8 +367,23 @@ command! UniteStartup
 
 augroup startup
     autocmd!
-    autocmd VimEnter * nested :UniteStartup
+    autocmd VimEnter * nested if @% == ''  && s:GetBufByte() == 0 | call s:RunUniteStartup() | endif
 augroup END
+
+" vimを引数なしで起動した場合に◯◯を行う - Make 鮫 noise
+"  http://saihoooooooo.hatenablog.com/entry/2013/05/24/130744
+function! s:GetBufByte()
+    let byte = line2byte(line('$') + 1)
+    if byte == -1
+        return 0
+    else
+        return byte - 1
+    endif
+endfunction
+
+function! s:RunUniteStartup()
+    UniteStartup
+endfunction
 "}}}
 
 "--------------- NERDTree --------------- {{{
@@ -484,7 +499,7 @@ nnoremap <silent> [unite]h :<C-u>Unite<Space>history/unite<CR>
 nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> ,vr :UniteResume<CR>
 let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_limit = 50
+let g:unite_source_file_mru_limit = 500
 let g:unite_source_history_yank_enable = 1
 "}}}
 
