@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/06/05 --
+"--                                Ver. 2015/06/08 --
 "--                                                --
 "----------------------------------------------------
 
@@ -40,6 +40,12 @@ set wildmenu
 set splitbelow
 " splitした時右に
 set splitright
+" 自動インデント
+set smartindent
+set autoindent
+set paste
+" フォーマット揃えをコメント以外有効にする
+set formatoptions-=c
 "}}}
 
 "--------------- 表示 --------------- {{{
@@ -51,33 +57,18 @@ set ruler
 set title
 " 括弧入力時に対応する括弧を表示
 set showmatch
-" 構文ハイライト
-"  //NeoBundleの兼ね合いで最下部に移動
 " タブの画面上での幅
 set tabstop=4
 " タブを挿入するときの幅
 set shiftwidth=4
 set softtabstop=0
-" 自動インデント
-set smartindent
-set autoindent
-" フォーマット揃えをコメント以外有効にする
-set formatoptions-=c
 " TAB,EOFなどを可視化する
 set list
 set listchars=tab:>-,extends:<,trail:-,eol:<
 " カーソルの上下に表示する行数
 set scrolloff=5
-" 色々な色
-"highlight Normal ctermbg=black ctermfg=grey
-"highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
-"highlight CursorLine term=none cterm=none ctermfg=none ctermbg=none
 " 256色表示
 set t_Co=256
-"colorscheme molokai
-"let g:molokai_original = 1
-"let g:rehash256 = 1
-"set background=dark
 " 折り返さない //2014.01.06 update.
 "set nowrap
 " カーソル行強調
@@ -191,12 +182,13 @@ set incsearch
 "}}}
 
 "--------------- keyMap --------------- {{{
-" Pukiwiki記法の改行
-"inoremap <C-Enter> &br;<Enter>
-" 年-月-日&br;&br;
-"inoremap <C-D> <C-R>=strftime("%Y-%m-%d")<Enter><C-Enter><C-Enter>
 " nohlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+" 末尾の半角スペース2つを<br>に
+nnoremap <Leader>sb :%s/  $/<br>/g<CR><Esc>
+" ft=markdownのショートカット
+nnoremap <Leader>fm :set<Space>ft=markdown<CR><Esc>
+nnoremap <Leader>fj :set<Space>ft=javascript<CR><Esc>
 "}}}
 
 "--------------- NeoBundle --------------- {{{
@@ -214,12 +206,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " plugins {{{
 NeoBundle 'Shougo/vimproc', {
-            \ 'build' : {
-            \ 'windows' : 'make -f make_mingw64.mak',
-            \ 'cygwin'  : 'make -f make_cygwin.mak',
-            \ 'mac'     : 'make -f make_mac.mak',
-            \ 'unix'    : 'make -f make_unix.mak',
-            \ },
+            \   'build' : {
+            \       'windows' : 'make -f make_mingw64.mak',
+            \       'cygwin'  : 'make -f make_cygwin.mak',
+            \       'mac'     : 'make -f make_mac.mak',
+            \       'unix'    : 'make -f make_unix.mak',
+            \   },
             \ }
 " A better JSON for Vim
 NeoBundle 'elzr/vim-json'
@@ -298,30 +290,7 @@ NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'w0ng/vim-hybrid'
 
-" インストールのチェック
-" 　起動速度向上のためプラグイン追加時は手動で。:w
-"NeoBundleCheck
-
 call neobundle#end()
-"}}}
-
-"未使用 {{{
-"let file_name = expand("%:p")
-"if has('vim_starting')
-"    if (file_name == "")
-"        "autocmd VimEnter * execute 'Startify'
-"    endif
-"    "autocmd VimEnter * execute 'Tlist'
-"    "autocmd VimEnter * execute 'NERDTree'
-"endif
-"}}}
-
-"--------------- startify --------------- {{{
-" bookmark設定
-"let g:startify_bookmarks = [
-"            \ '~/.vimrc',
-"            \ '~/.gvimrc',
-"            \ ]
 "}}}
 
 "--------------- UniteStartup --------------- {{{
@@ -367,7 +336,7 @@ command! UniteStartup
 
 augroup startup
     autocmd!
-    autocmd VimEnter * nested if @% == ''  && s:GetBufByte() == 0 | call s:RunUniteStartup() | endif
+    autocmd VimEnter * nested if @% == ''  && s:GetBufByte() == 0 | execute 'UniteStartup' | endif
 augroup END
 
 " vimを引数なしで起動した場合に◯◯を行う - Make 鮫 noise
@@ -379,10 +348,6 @@ function! s:GetBufByte()
     else
         return byte - 1
     endif
-endfunction
-
-function! s:RunUniteStartup()
-    UniteStartup
 endfunction
 "}}}
 
