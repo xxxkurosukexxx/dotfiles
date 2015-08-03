@@ -43,7 +43,7 @@ set splitright
 " 自動インデント
 set smartindent
 set autoindent
-set paste
+"set paste
 " フォーマット揃えをコメント以外有効にする
 set formatoptions-=c
 "}}}
@@ -189,6 +189,9 @@ nnoremap <Leader>sb :%s/  $/<br>/g<CR><Esc>
 " ft=markdownのショートカット
 nnoremap <Leader>fm :set<Space>ft=markdown<CR><Esc>
 nnoremap <Leader>fj :set<Space>ft=javascript<CR><Esc>
+nnoremap <Leader>fs :set<Space>ft=sql<CR><Esc>
+nnoremap <Leader>fp :set<Space>ft=php<CR><Esc>
+nnoremap <Leader>fh :set<Space>ft=html<CR><Esc>
 "}}}
 
 "--------------- NeoBundle --------------- {{{
@@ -205,13 +208,14 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " plugins {{{
-NeoBundle 'Shougo/vimproc', {
-            \   'build' : {
-            \       'windows' : 'make -f make_mingw64.mak',
-            \       'cygwin'  : 'make -f make_cygwin.mak',
-            \       'mac'     : 'make -f make_mac.mak',
-            \       'unix'    : 'make -f make_unix.mak',
-            \   },
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin'  : 'make -f make_cygwin.mak',
+            \     'mac'     : 'make -f make_mac.mak',
+            \     'linux'   : 'make',
+            \     'unix'    : 'gmake',
+            \    },
             \ }
 " A better JSON for Vim
 NeoBundle 'elzr/vim-json'
@@ -282,6 +286,14 @@ NeoBundle 'taka84u9/unite-git'
 NeoBundle 'ujihisa/unite-colorscheme'
 " vimshell
 NeoBundle 'Shougo/vimshell.vim'
+" SQLUtilities
+NeoBundle 'SQLUtilities', {
+            \    'depends': 'Align'
+            \}
+" 緊急地震速報 on Vim
+"NeoBundle 'haya14busa/eew.vim' "Windowsで上手く動かせなかった...
+" NicoNico like comments on Vim
+NeoBundle 'haya14busa/niconicomment.vim'
 
 ""colorscheme---
 NeoBundle 'tomasr/molokai'
@@ -466,6 +478,12 @@ nnoremap <silent> ,vr :UniteResume<CR>
 let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 500
 let g:unite_source_history_yank_enable = 1
+"}}}
+
+"--------------- SQLUtilities --------------- {{{
+let g:sqlutil_align_where = 1
+let g:sqlutil_align_comma = 1
+nnoremap <Leader>sql :SQLUFormatter<CR>
 "}}}
 
 "}}}
