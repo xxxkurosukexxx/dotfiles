@@ -1,5 +1,9 @@
-storage
-compile-cache
+storage/
+compile-cache/
 dev
-.npm
-.node-gyp
+.npm/
+.node-gyp/
+.apm/
+npm-debug.log
+packages/
+projects.cson

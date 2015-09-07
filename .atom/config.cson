@@ -3,3 +3,9 @@
     userId: "5170c0e3-09f1-609f-010e-62993408a690"
   welcome:
     showOnStartup: false
+  minimap:
+    plugins:
+      "minimap-autohide": true
+      bookmarks: true
+      pigments: true
+      "highlight-selected": true
