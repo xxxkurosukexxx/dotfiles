@@ -9,3 +9,15 @@
       bookmarks: true
       pigments: true
       "highlight-selected": true
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "wrap-guide"
+    ]
+  editor:
+    invisibles: {}
+    fontFamily: "VL Gothic"
+    tabType: "soft"
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
