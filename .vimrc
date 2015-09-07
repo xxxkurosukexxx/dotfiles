@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/06/08 --
+"--                                Ver. 2015/07/27 --
 "--                                                --
 "----------------------------------------------------
 
@@ -301,6 +301,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'github-theme'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'rhysd/vim-color-splatoon'
 
 call neobundle#end()
 "}}}
