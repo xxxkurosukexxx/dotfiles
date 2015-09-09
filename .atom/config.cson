@@ -21,3 +21,5 @@
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
+  "atom-beautify":
+    _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
