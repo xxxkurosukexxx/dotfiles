@@ -53,6 +53,7 @@ set lines=55
 
 " https://github.com/w0ng/vim-hybrid
 colorscheme hybrid
+set background=dark
 "colorscheme hybrid-light "←こっちは白背景なのでプロジェクターで映すときとかにいいかも？
 
 " }}}1

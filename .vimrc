@@ -499,7 +499,7 @@ filetype plugin indent on
 "colorscheme molokai
 "colorscheme iceberg
 "set background=light
-"set background=dark
+set background=dark
 colorscheme hybrid
 "colorscheme hybrid-light "←こっちは白背景なのでプロジェクターで映すときとかにいいかも？
 "}}}
