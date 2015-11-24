@@ -31,3 +31,7 @@
     php_fixers: "-phpdoc_no_package"
   "atom-typescript": {}
   linter: {}
+  "linter-php": {}
+  "symbols-tree-view":
+    autoHide: true
+    zAutoHideTypes: "variable"

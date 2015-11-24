@@ -28,3 +28,4 @@
 
 'atom-text-editor':
     'f10': 'tabs-to-spaces:untabify-all'
+    'ctrl-shift-W': 'tabs:close-all-tabs'

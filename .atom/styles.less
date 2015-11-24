@@ -1,26 +1,26 @@
-/*
- * Your Stylesheet
- *
- * This stylesheet is loaded when Atom starts up and is reloaded automatically
- * when it is changed.
- *
- * If you are unfamiliar with LESS, you can read more about it here:
- * http://www.lesscss.org
+/**
+ * My Stylesheet
  */
-.tree-view {
 
+atom-workspace {
+    // background
+    @background-image: url(/Users/katoh/.atom/miku.jpg) center; //miku
+    background: @background-image;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    atom-workspace-axis {
+        // background
+        opacity: 0.95;
+        background: rgba(0, 0, 0, 0.5);
+    }
 }
 
-// style the background and foreground colors on the atom-text-editor-element
-// itself
-atom-text-editor {
-
-}
-
-// To style other content in the text editor's shadow DOM, use the ::shadow
-// expression
-atom-text-editor::shadow .cursor {
-
+atom-text-editor::shadow {
+    // cursor-line
+    .line.cursor-line {
+        background: rgba(80, 80, 80, 0.5);
+    }
 }
 
 // Styles for the markdown preview.
@@ -58,25 +58,8 @@ atom-text-editor::shadow .cursor {
     }
 }
 
-// Changing the color of the tab (when the hover).
-.tab:hover, .tab:hover .title {
-    //background-color: #f5f5f5;
-}
-
-// Change the transparency of the non-active pane.
-.vertical {
-    .pane {
-        opacity: 0.70;
-        &.active {
-            opacity: 1.0;
-        }
-    }
-}
-
 // Optimize the font for Japanese
 // Default font << Hiragino + Meiryo
-div.title,
-div.tree-view-scroller,
-div.status-bar-left {
+div.title, div.tree-view-scroller, div.status-bar-left {
     font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
