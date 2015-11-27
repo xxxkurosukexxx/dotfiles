@@ -35,3 +35,4 @@
   "symbols-tree-view":
     autoHide: true
     zAutoHideTypes: "variable"
+  "sass-autocompile": {}
