@@ -13,6 +13,7 @@
     audioBeep: false
     disabledPackages: [
       "wrap-guide"
+      "linter-sass-lint"
     ]
     themes: [
       "atom-dark-ui"
@@ -20,12 +21,12 @@
     ]
   editor:
     invisibles: {}
-    fontFamily: "VL Gothic"
     tabType: "soft"
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
-    fontSize: 12
+    fontSize: 11
+    fontFamily: "Source Han Code JP"
   "atom-beautify":
     _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
     php_fixers: "-phpdoc_no_package"
@@ -36,3 +37,5 @@
     autoHide: true
     zAutoHideTypes: "variable"
   "sass-autocompile": {}
+  "linter-sass-lint":
+    configPath: "~/.atom/.sass-lint.yml"
