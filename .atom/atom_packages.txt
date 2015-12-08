@@ -9,12 +9,15 @@ earthsung-by-jackson-syntax
 editorconfig
 file-icons
 file-types
+git-control
+git-log
 highlight-selected
 language-apache
 language-ini
 language-smarty-php
 linter
 linter-php
+linter-sass-lint
 linter-tslint
 minimap
 minimap-autohide
