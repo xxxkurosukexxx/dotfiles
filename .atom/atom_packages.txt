@@ -27,6 +27,9 @@ minimap-pigments
 open-recent
 pigments
 pretty-json
+processing
+processing-autocomplete
+processing-language
 project-manager
 sass-autocompile
 save-session
