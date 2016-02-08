@@ -37,6 +37,7 @@ show-ideographic-space
 sort-lines
 Sublime-Style-Column-Selection
 svn
+symbol-gen
 symbols-tree-view
 tabs-to-spaces
 tag

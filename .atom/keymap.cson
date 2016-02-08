@@ -29,3 +29,6 @@
 'atom-text-editor':
     'f10': 'tabs-to-spaces:untabify-all'
     'ctrl-shift-W': 'tabs:close-all-tabs'
+    'ctrl-alt-b': 'atom-beautify:beautify-editor'
+    'f12': 'symbols-view:go-to-declaration'
+    'shift-f12': 'symbols-view:return-from-declaration'

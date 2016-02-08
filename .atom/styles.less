@@ -3,7 +3,7 @@
  */
 atom-workspace {
     // background
-    @background-image: url(/Users/katoh/.atom/miku.jpg) center; //miku
+    @background-image: url("/Users/katoh/.atom/miku.jpg") center; //miku
     background: @background-image;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,7 +23,7 @@ atom-text-editor::shadow {
 
 // Styles for the markdown preview.
 @font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-.markdown-preview {
+.markdown-preview.markdown-preview {
     font-family: @font-family;
     letter-spacing: 0.08em;
     h1, h2, h3, h4, h5, h6 {
@@ -58,6 +58,11 @@ atom-text-editor::shadow {
 
 // Optimize the font for Japanese
 // Default font << Hiragino + Meiryo
+@jp-font-style: "Source Han Code JP", 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 div.title, div.tree-view-scroller, div.status-bar-left {
-    font-family: "Source Han Code JP", 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-family: @jp-font-style;
+}
+div.git-log {
+    font-family: @jp-font-style !important;
+    font-size: inherit;
 }
