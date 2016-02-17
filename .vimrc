@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2015/07/27 --
+"--                                Ver. 2016/02/24 --
 "--                                                --
 "----------------------------------------------------
 
@@ -125,6 +125,8 @@ set smarttab
 if exists('&ambiwidth')
     set ambiwidth=double
 endif
+" ハイライト
+set hlsearch
 "}}}
 
 "--------------- 自動文字数カウント --------------- {{{
@@ -250,7 +252,7 @@ NeoBundle 'violetyk/neocomplete-php.vim'
 " simple memo plugin for Vim.
 NeoBundle 'glidenote/memolist.vim'
 " Realtime preview by Vim
-NeoBundle 'kannokanno/previm'
+NeoBundle 'kannokanno/previm' ", '46-support-latest-open-browser'
 " Typescript syntax files for Vim
 NeoBundle 'leafgarland/typescript-vim'
 " インデントに色を付けて見やすくする
@@ -432,8 +434,8 @@ augroup END
 
 "--------------- open-browser.vim --------------- {{{
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
-noremap  gx <Plug>(openbrowser-smart-search)
-vnoremap gx <Plug>(openbrowser-smart-search)
+noremap  <Leader>gx <Plug>(openbrowser-smart-search)
+vnoremap <Leader>gx <Plug>(openbrowser-smart-search)
 "}}}
 
 "--------------- memolist.vim --------------- {{{
