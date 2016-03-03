@@ -1,4 +1,6 @@
+activate-power-mode
 atom-beautify
+atom-dark-ui-slim
 atom-jshint
 atom-typescript
 autocomplete-emojis
@@ -7,10 +9,13 @@ color-picker
 compare-files
 earthsung-by-jackson-syntax
 editorconfig
+emmet
 file-icons
 file-types
 git-control
 git-log
+git-plus
+gl-light-syntax
 highlight-selected
 language-apache
 language-ini
@@ -19,6 +24,8 @@ linter
 linter-php
 linter-sass-lint
 linter-tslint
+markdown-table-formatter
+merge-conflicts
 minimap
 minimap-autohide
 minimap-bookmarks

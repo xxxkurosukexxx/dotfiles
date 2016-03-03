@@ -1,50 +1,51 @@
 "*":
-    "atom-beautify":
-        _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
-        php_fixers: "-phpdoc_no_package"
-    "atom-typescript": {}
-    autosave:
-        enabled: true
-    core:
-        audioBeep: false
-        disabledPackages: [
-            "wrap-guide"
-            "linter-sass-lint"
-        ]
-        themes: [
-            "atom-dark-ui"
-            "earthsung-by-jackson-syntax"
-        ]
-    editor:
-        fontFamily: "Source Han Code JP"
-        fontSize: 12
-        invisibles: {}
-        showIndentGuide: true
-        showInvisibles: true
-        tabLength: 4
-        tabType: "soft"
-    "exception-reporting":
-        userId: "5170c0e3-09f1-609f-010e-62993408a690"
-    "find-and-replace": {}
-    "git-diff":
-        showIconsInEditorGutter: true
-    linter: {}
-    "linter-php": {}
-    "linter-sass-lint":
-        configPath: "~/.atom/.sass-lint.yml"
-    "markdown-preview":
-        useGitHubStyle: true
-    minimap:
-        plugins:
-            bookmarks: true
-            "highlight-selected": true
-            "minimap-autohide": true
-            pigments: true
-    "sass-autocompile": {}
-    "save-session":
-        dataSaveFolder: "~/.atom/packages/save-session/projects/"
-    "symbols-tree-view":
-        autoHide: true
-        zAutoHideTypes: "variable"
-    welcome:
-        showOnStartup: false
+  "atom-beautify":
+    _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
+    php_fixers: "-phpdoc_no_package"
+  "atom-typescript": {}
+  autosave:
+    enabled: true
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "wrap-guide"
+      "linter-sass-lint"
+    ]
+    themes: [
+      "atom-dark-ui-slim"
+      "earthsung-by-jackson-syntax"
+    ]
+  editor:
+    fontFamily: "Source Han Code JP"
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "5170c0e3-09f1-609f-010e-62993408a690"
+  "find-and-replace": {}
+  "git-diff":
+    showIconsInEditorGutter: true
+  "git-plus": {}
+  linter: {}
+  "linter-php": {}
+  "linter-sass-lint":
+    configPath: "~/.atom/.sass-lint.yml"
+  "markdown-preview":
+    useGitHubStyle: true
+  "markdown-table-formatter": {}
+  minimap:
+    plugins:
+      bookmarks: true
+      "highlight-selected": true
+      "minimap-autohide": true
+      pigments: true
+  "sass-autocompile": {}
+  "symbols-tree-view":
+    autoHide: true
+    zAutoHideTypes: "variable"
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
