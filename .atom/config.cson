@@ -1,4 +1,10 @@
 "*":
+  "activate-power-mode":
+    particles:
+      size: {}
+      spawnCount: {}
+      totalCount: {}
+    screenShake: {}
   "atom-beautify":
     _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
     php_fixers: "-phpdoc_no_package"
@@ -7,9 +13,11 @@
     enabled: true
   core:
     audioBeep: false
+    closeEmptyWindows: false
     disabledPackages: [
       "wrap-guide"
       "linter-sass-lint"
+      "spell-check"
     ]
     themes: [
       "atom-dark-ui-slim"
@@ -17,7 +25,7 @@
     ]
   editor:
     fontFamily: "Source Han Code JP"
-    fontSize: 12
+    fontSize: 11
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -38,13 +46,32 @@
   minimap:
     plugins:
       bookmarks: true
+      bookmarksDecorationsZIndex: 0
       "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
       "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
       pigments: true
+      pigmentsDecorationsZIndex: 0
   "sass-autocompile": {}
+  "spell-check": {}
   "symbols-tree-view":
     autoHide: true
     zAutoHideTypes: "variable"
+  "todo-show":
+    ignoreThesePaths: [
+      "**/node_modules/"
+      "**/vendor/"
+      "**/bower_components/"
+    ]
+    showInTable: [
+      "Type"
+      "Text"
+      "File"
+      "Line"
+    ]
+    sortAscending: false
+    sortBy: "File"
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:

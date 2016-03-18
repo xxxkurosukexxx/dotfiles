@@ -2,6 +2,7 @@ activate-power-mode
 atom-beautify
 atom-dark-ui-slim
 atom-jshint
+atom-monokai
 atom-typescript
 autocomplete-emojis
 autocomplete-paths
@@ -19,6 +20,7 @@ gl-light-syntax
 highlight-selected
 language-apache
 language-ini
+language-powershell
 language-smarty-php
 linter
 linter-php
@@ -31,6 +33,7 @@ minimap-autohide
 minimap-bookmarks
 minimap-highlight-selected
 minimap-pigments
+octocat-syntax
 open-recent
 pigments
 pretty-json
