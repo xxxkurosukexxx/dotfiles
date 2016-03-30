@@ -3,11 +3,15 @@
  */
 atom-workspace {
     // background
-    //@import "styles/miku.less";
-    //@import "styles/99b983892094b5c6d2fc3736e15da7d1.less";
-    //@import "styles/3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887.less";
-    @import "styles/48039_vocaloid_hatsune_miku.less";
-    //@import "styles/40063_vocaloid_hatsune_miku.less";
+    // filelist
+    @lessFilesList: 'miku',
+                    '99b983892094b5c6d2fc3736e15da7d1',
+                    '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
+                    '48039_vocaloid_hatsune_miku',
+                    '40063_vocaloid_hatsune_miku',
+                    ;
+    @useFile: extract(@lessFilesList, 3);
+    @import "styles/@{useFile}";
     background-image: @img;
     background-attachment: fixed;
     background-position: @imgposX @imgposY;
@@ -15,7 +19,6 @@ atom-workspace {
     background-size: cover;
     atom-workspace-axis {
         opacity: 0.95;
-        background: rgba(255, 255, 255, 0.1);
         atom-pane-resize-handle.vertical {
             background: rgba(51, 51, 51, 0.8);
             height: 4px;
