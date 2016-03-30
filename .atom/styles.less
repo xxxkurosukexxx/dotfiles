@@ -18,7 +18,7 @@ atom-workspace {
     background-repeat: no-repeat;
     background-size: cover;
     atom-workspace-axis {
-        opacity: 0.95;
+        opacity: 0.9;
         atom-pane-resize-handle.vertical {
             background: rgba(51, 51, 51, 0.8);
             height: 4px;
@@ -36,6 +36,12 @@ atom-text-editor::shadow {
     }
     .comment {
         color: #7B9AD5;
+    }
+    .line span {
+        text-shadow: 1px 1px 1px black;
+    }
+    .line span.invisible-character {
+        text-shadow: none;
     }
 }
 
