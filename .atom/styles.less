@@ -1,9 +1,8 @@
 /**
  * My Stylesheet
  */
-atom-workspace {
-    // background
-    // filelist
+
+.bkCfg() {
     @lessFilesList: 'miku',
                     '99b983892094b5c6d2fc3736e15da7d1',
                     '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
@@ -11,7 +10,19 @@ atom-workspace {
                     '40063_vocaloid_hatsune_miku',
                     ;
     @useFile: extract(@lessFilesList, 3);
-    @import "styles/@{useFile}";
+    @import 'styles/@{useFile}';
+}
+
+.textShadow() {
+    @base: lighten(rgba(0, 0, 0, 0.9), 5%);
+    text-shadow: 0 0 1px black,
+                 1px 1px 1px @base,
+                 2px 2px 2px fadeout(@base, 25%),
+                 4px 4px 4px fadeout(@base, 50%);
+}
+
+atom-workspace {
+    .bkCfg();
     background-image: @img;
     background-attachment: fixed;
     background-position: @imgposX @imgposY;
@@ -24,29 +35,48 @@ atom-workspace {
             height: 4px;
             margin-top: -2px;
         }
+        span {
+            .textShadow();
+        }
+        div.settings-view {
+            .textShadow();
+            .setting-title, .btn {
+                color: lighten(#aaa, 10%);
+            }
+            .setting-description {
+                color: darken(#aaa, 10%);
+            }
+            ::shadow .placeholder-text {
+                color: lighten(#555, 25%);
+            }
+        }
+        div.title {
+            .textShadow();
+        }
     }
 }
 atom-text-editor {
     color: #eee;
-}
-atom-text-editor::shadow {
-    // cursor-line
-    .line.cursor-line {
-        background: rgba(150, 100, 100, 0.4);
-    }
-    .comment {
-        color: #7B9AD5;
-    }
-    .line span {
-        text-shadow: 1px 1px 1px black;
-    }
-    .line span.invisible-character {
-        text-shadow: none;
+    &::shadow {
+        .line.cursor-line {
+            background: rgba(150, 100, 100, 0.4);
+        }
+        .comment {
+            color: lighten(saturate(#7B9AD5, 50%), 10%);
+        }
+        .line {
+            span {
+                .textShadow;
+            }
+            span.invisible-character {
+                text-shadow: none;
+            }
+        }
     }
 }
 
 // Styles for the markdown preview.
-@font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+@font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 .markdown-preview.markdown-preview {
     font-family: @font-family;
     letter-spacing: 0.08em;
@@ -82,8 +112,8 @@ atom-text-editor::shadow {
 
 // Optimize the font for Japanese
 // Default font << Source Han Code JP + Hiragino + Meiryo
-@jp-font-style: "Source Han Code JP", 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-div.title, div.tree-view-scroller, div.status-bar-left {
+@jp-font-style: 'Source Han Code JP', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+div.status-bar-left, div.title, div.tree-view-scroller {
     font-family: @jp-font-style;
 }
 div.git-log {

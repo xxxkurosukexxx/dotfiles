@@ -18,6 +18,10 @@
       "wrap-guide"
       "linter-sass-lint"
       "spell-check"
+      "save-session"
+      "minimap-pigments"
+      "pigments"
+      "color-picker"
     ]
     themes: [
       "atom-dark-ui-slim"
