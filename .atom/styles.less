@@ -8,8 +8,14 @@
                     '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
                     '48039_vocaloid_hatsune_miku',
                     '40063_vocaloid_hatsune_miku',
+                    'll',
+                    '10721936814_38822fdd52_o',
+                    'vocaloid_gloves_hatsune_miku_rainbows_twintails_simple_background',
+                    'WZCd1XK',
+                    'vocaloid-hatsune-miku-girl-kimono-petals-3840x2400',
+                    'vocaloid_hatsune_miku_long_hai_2560x1440',
                     ;
-    @useFile: extract(@lessFilesList, 3);
+    @useFile: extract(@lessFilesList, 8);
     @import 'styles/@{useFile}';
 }
 
@@ -24,15 +30,19 @@
              5/2px 5/2px 5px darken(pink, 50%),
              10/2px 10/2px 10px darken(pink, 25%),
              20/2px 20/2px 20px lighten(pink, 10%);
-    @use: 'pink';
+    @use: 'normal';
     text-shadow: @@use,
 }
 
 atom-workspace {
     .bkCfg();
-    background-image: @img;
+    //background-image: @img;
+    //background-image: url("http://info.miku.sega.jp/wp-content/uploads/2015/04/screen.00006.jpg");
+    //background-image: url("http://nekoneko-arufa.c.blog.so-net.ne.jp/_images/blog/_ceb/nekoneko-arufa/fg20359-11372.JPG");
+    background-image: url("https://c2.staticflickr.com/2/1642/24316989895_3638bdcc08_k.jpg");
     background-attachment: fixed;
-    background-position: @imgposX @imgposY;
+    //background-position: @imgposX @imgposY;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
     atom-workspace-axis {
@@ -78,6 +88,13 @@ atom-text-editor {
             span.invisible-character {
                 text-shadow: none;
             }
+        }
+        .highlight .region {
+            background-color: fadeout(lighten(pink, 5%), 50%);
+        }
+        .line-number {
+            color: lighten(#7b7265, 20%);
+            text-shadow: 1px 1px 0 black;
         }
     }
 }
