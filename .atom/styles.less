@@ -1,8 +1,8 @@
 /**
  * My Stylesheet
  */
-
 .bkCfg() {
+    @lessFilePathPrefix: 'styles';
     @lessFilesList: 'miku',
                     '99b983892094b5c6d2fc3736e15da7d1',
                     '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
@@ -14,11 +14,15 @@
                     'WZCd1XK',
                     'vocaloid-hatsune-miku-girl-kimono-petals-3840x2400',
                     'vocaloid_hatsune_miku_long_hai_2560x1440',
+                    '38289737',
+                    'lo-2551745-54836104_p0',
                     ;
-    @useFile: extract(@lessFilesList, 8);
-    @import 'styles/@{useFile}';
+    @useFile: extract(@lessFilesList, 13);
+    @import '@{lessFilePathPrefix}/@{useFile}';
+    @import '@{lessFilePathPrefix}/logo';
+    @import '@{lessFilePathPrefix}/kotori';
+    @import '@{lessFilePathPrefix}/kotoriProf';
 }
-
 .textShadow() {
     @base: lighten(rgba(0, 0, 0, 0.9), 5%);
     @normal: 0 0 1px black,
@@ -34,67 +38,74 @@
     text-shadow: @@use,
 }
 
-atom-workspace {
+body {
     .bkCfg();
-    //background-image: @img;
-    //background-image: url("http://info.miku.sega.jp/wp-content/uploads/2015/04/screen.00006.jpg");
-    //background-image: url("http://nekoneko-arufa.c.blog.so-net.ne.jp/_images/blog/_ceb/nekoneko-arufa/fg20359-11372.JPG");
-    background-image: url("https://c2.staticflickr.com/2/1642/24316989895_3638bdcc08_k.jpg");
+    background: @kotoriProf calc(100% - 1px) calc(100% - 5px),
+                @kotori left bottom,
+                @logo left top / 990px,
+                @img @imgposX @imgposY / cover;
     background-attachment: fixed;
-    //background-position: @imgposX @imgposY;
-    background-position: center bottom;
     background-repeat: no-repeat;
-    background-size: cover;
-    atom-workspace-axis {
-        opacity: 0.9;
-        atom-pane-resize-handle.vertical {
-            background: rgba(51, 51, 51, 0.8);
-            height: 4px;
-            margin-top: -2px;
-        }
-        span {
-            .textShadow();
-        }
-        div.settings-view {
-            .textShadow();
-            .setting-title, .btn {
-                color: lighten(#aaa, 10%);
+    height: 100%;
+    width: 100%;
+    atom-workspace {
+        background-color: transparent;
+        atom-workspace-axis {
+            atom-pane-resize-handle.vertical {
+                background: rgba(51, 51, 51, 0.8);
+                height: 4px;
+                margin-top: -2px;
             }
-            .setting-description {
-                color: darken(#aaa, 10%);
-            }
-            ::shadow .placeholder-text {
-                color: lighten(#555, 25%);
-            }
-        }
-        div.title {
-            .textShadow();
-        }
-    }
-}
-atom-text-editor {
-    color: #eee;
-    &::shadow {
-        .line.cursor-line {
-            background: rgba(150, 100, 100, 0.4);
-        }
-        .comment {
-            color: lighten(saturate(#7B9AD5, 50%), 10%);
-        }
-        .line {
             span {
-                .textShadow;
+                .textShadow();
             }
-            span.invisible-character {
-                text-shadow: none;
+            div.settings-view {
+                .textShadow();
+                .btn, .setting-title {
+                    color: lighten(#aaa, 10%);
+                }
+                .setting-description {
+                    color: darken(#aaa, 10%);
+                }
+                ::shadow .placeholder-text {
+                    color: lighten(#555, 25%);
+                }
+            }
+            div.title {
+                .textShadow();
             }
         }
-        .highlight .region {
-            background-color: fadeout(lighten(pink, 5%), 50%);
+        atom-workspace-axis.vertical {
+            opacity: 0.8;
+            atom-text-editor {
+                color: #eee;
+                &::shadow {
+                    .line.cursor-line {
+                        background: rgba(150, 100, 100, 0.4);
+                    }
+                    .comment {
+                        color: lighten(saturate(#7B9AD5, 50%), 10%);
+                    }
+                    .line {
+                        span {
+                            .textShadow();
+                        }
+                        span.invisible-character {
+                            text-shadow: none;
+                        }
+                    }
+                    .highlight .region {
+                        background-color: fadeout(lighten(pink, 5%), 50%);
+                    }
+                    .line-number {
+                        color: lighten(#7b7265, 20%);
+                        text-shadow: 1px 1px 0 black;
+                    }
+                }
+            }
         }
-        .line-number {
-            color: lighten(#7b7265, 20%);
-            text-shadow: 1px 1px 0 black;
+        .tree-view, atom-panel-container.left, atom-panel.tool-panel {
+            opacity: 0.9;
         }
     }
 }
@@ -133,7 +144,6 @@ atom-text-editor {
         margin-bottom: 1em;
     }
 }
-
 // Optimize the font for Japanese
 // Default font << Source Han Code JP + Hiragino + Meiryo
 @jp-font-style: 'Source Han Code JP', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
