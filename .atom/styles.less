@@ -1,8 +1,8 @@
 /**
  * My Stylesheet
  */
+ @lessFilePathPrefix: 'styles';
 .bkCfg() {
-    @lessFilePathPrefix: 'styles';
     @lessFilesList: 'miku',
                     '99b983892094b5c6d2fc3736e15da7d1',
                     '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
@@ -16,12 +16,11 @@
                     'vocaloid_hatsune_miku_long_hai_2560x1440',
                     '38289737',
                     'lo-2551745-54836104_p0',
+                    'e00fd38b50310075668fcbe732231df1943401361386758911',
+                    'f0080272_57289fcd69b25',
                     ;
     @useFile: extract(@lessFilesList, 13);
-    @import '@{lessFilePathPrefix}/@{useFile}';
-    @import '@{lessFilePathPrefix}/logo';
-    @import '@{lessFilePathPrefix}/kotori';
-    @import '@{lessFilePathPrefix}/kotoriProf';
+    @import (multiple,reference) '@{lessFilePathPrefix}/@{useFile}';
 }
 .textShadow() {
     @base: lighten(rgba(0, 0, 0, 0.9), 5%);
@@ -37,19 +36,37 @@
     @use: 'normal';
     text-shadow: @@use,
 }
-
-body {
-    .bkCfg();
+.kotori() {
+    @import (multiple,reference) '@{lessFilePathPrefix}/lo-2551745-54836104_p0';
+    @import (multiple,reference) '@{lessFilePathPrefix}/logo';
+    @import (multiple,reference) '@{lessFilePathPrefix}/kotori';
+    @import (multiple,reference) '@{lessFilePathPrefix}/kotoriProf';
     background: @kotoriProf calc(100% - 1px) calc(100% - 5px),
-                @kotori left bottom,
+                @logo left top / 990px,
+                @kotori left bottom / 500px,
+                @img @imgposX @imgposY / cover;
+}
+.maki() {
+    @import (multiple,reference) '@{lessFilePathPrefix}/LoveLive_maki_20150801_01';
+    @import (multiple,reference) '@{lessFilePathPrefix}/logo';
+    @import (multiple,reference) '@{lessFilePathPrefix}/makiProf';
+    background: @makiProf right bottom,
                 @logo left top / 990px,
                 @img @imgposX @imgposY / cover;
+}
+body {
+    .bkCfg();
+    //.kotori();
+    .maki();
+    //background: @img @imgposX @imgposY / cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     atom-workspace {
-        background-color: transparent;
+        //background-color: darken(#115, 10%);
+        background-color: fadeout(darken(#b8545c, 10%), 50%);
+        //background-color: transparent;
         atom-workspace-axis {
             atom-pane-resize-handle.vertical {
                 background: rgba(51, 51, 51, 0.8);
@@ -78,10 +95,10 @@ body {
         atom-workspace-axis.vertical {
             opacity: 0.8;
             atom-text-editor {
-                color: #eee;
+                color: #fcd;
                 &::shadow {
                     .line.cursor-line {
-                        background: rgba(150, 100, 100, 0.4);
+                        background: rgba(200, 120, 120, 0.3);
                     }
                     .comment {
                         color: lighten(saturate(#7B9AD5, 50%), 10%);
@@ -98,7 +115,7 @@ body {
                         background-color: fadeout(lighten(pink, 5%), 50%);
                     }
                     .line-number {
-                        color: lighten(#7b7265, 20%);
+                        color: lighten(#7b7265, 30%);
                         text-shadow: 1px 1px 0 black;
                     }
                 }
