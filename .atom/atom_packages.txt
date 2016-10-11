@@ -6,6 +6,7 @@ atom-monokai
 atom-typescript
 autocomplete-emojis
 autocomplete-paths
+blade-snippets
 color-picker
 compare-files
 earthsung-by-jackson-syntax
@@ -19,10 +20,14 @@ git-plus
 gl-light-syntax
 highlight-selected
 language-apache
+language-blade
 language-ini
 language-powershell
-language-smarty-php
+language-smarty
+language-velocity
+laravel
 linter
+linter-eslint
 linter-php
 linter-sass-lint
 linter-tslint
@@ -35,6 +40,7 @@ minimap-highlight-selected
 minimap-pigments
 octocat-syntax
 open-recent
+pdf-view
 pigments
 pretty-json
 processing
