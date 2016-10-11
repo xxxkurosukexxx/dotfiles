@@ -7,7 +7,7 @@
 "--      Released under the MIT license            --
 "--      See LICENSE.txt                           --
 "--                                                --
-"--                                Ver. 2016/02/24 --
+"--                                Ver. 2016/10/11 --
 "--                                                --
 "----------------------------------------------------
 
@@ -196,118 +196,117 @@ nnoremap <Leader>fp :set<Space>ft=php<CR><Esc>
 nnoremap <Leader>fh :set<Space>ft=html<CR><Esc>
 "}}}
 
-"--------------- NeoBundle --------------- {{{
+"--------------- Dein.vim --------------- {{{
 if has('vim_starting')
     " VIM互換にしない 2015.05.13 vimrcアンチパターン - rbtnn雑記 http://rbtnn.hateblo.jp/entry/2014/11/30/174749
     if &compatible
         set nocompatible
     endif
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+    let s:dein_dir = expand('~/.vim/dein')
+    let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+    if &runtimepath !~# '/dein.vim'
+      if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+      endif
+      execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    endif
 endif
-" neobundle.vimの初期化
-call neobundle#begin(expand('~/.vim/bundle'))
-" NeoBundleを更新するための設定
-NeoBundleFetch 'Shougo/neobundle.vim'
 
-" plugins {{{
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \     'windows' : 'tools\\update-dll-mingw',
-            \     'cygwin'  : 'make -f make_cygwin.mak',
-            \     'mac'     : 'make -f make_mac.mak',
-            \     'linux'   : 'make',
-            \     'unix'    : 'gmake',
-            \    },
-            \ }
-" A better JSON for Vim
-NeoBundle 'elzr/vim-json'
-" PukiWiki記法シンタックスハイライト
-NeoBundle 'ytsunetsune/vim-pukiwiki-syntax'
-" Add CSS3 syntax support
-NeoBundle 'hail2u/vim-css3-syntax'
-" HTML5 omnicomplete and syntax
-NeoBundle 'othree/html5.vim'
-" Vastly improved Javascript indentation and syntax support in Vim.
-NeoBundle 'pangloss/vim-javascript'
-" Syntax file for jQuery
-NeoBundle 'nono/jquery.vim'
-" A fancy start screen for Vim
-"NeoBundle 'mhinz/vim-startify'
-" Source Explorer, TagList, NERD Tree to be an IDE
-NeoBundle 'wesleyche/Trinity'
-" exploring the source code based on tags
-NeoBundle 'wesleyche/SrcExpl'
-" ソースコード上のメソッド宣言、変数宣言の一覧を表示
-NeoBundle 'taglist.vim'
-" A tree explorer plugin for vim
-NeoBundle 'scrooloose/nerdtree'
-" PHP 5.6 syntax highlight for vim
-NeoBundle 'StanAngeloff/php.vim'
-" Open URI with your favorite browser
-NeoBundle 'tyru/open-browser.vim'
-" Next generation completion framework
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Konfekt/FastFold'
-" The neocomplete source for PHP
-NeoBundle 'violetyk/neocomplete-php.vim'
-" simple memo plugin for Vim.
-NeoBundle 'glidenote/memolist.vim'
-" Realtime preview by Vim
-NeoBundle 'kannokanno/previm' ", '46-support-latest-open-browser'
-" Typescript syntax files for Vim
-NeoBundle 'leafgarland/typescript-vim'
-" インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
-" ログファイルを色づけしてくれる
-NeoBundle 'AnsiEsc.vim'
-" Automatically save changes to disk
-"NeoBundle 'vim-auto-save'
-" make benchmark result of your vimrc
-NeoBundle 'mattn/benchvimrc-vim'
-" Provides database access to many dbms
-NeoBundle 'dbext.vim'
-" A vim javascript indent script
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-" Adjust Gvim font size via keypresses
-NeoBundle 'drmikehenry/vim-fontsize'
-" 行末の半角スペースを可視化
-NeoBundle 'bronson/vim-trailing-whitespace'
-" 括弧囲みの編集操作
-NeoBundle 'tpope/vim-surround'
-" Smartyのシンタクスハイライト
-NeoBundle 'sifue/smarty.vim'
-" markdownのシンタクスハイライトのためのプラグイン
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
-" Blade用
-NeoBundle 'xsbeats/vim-blade'
-" Unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'kmnk/vim-unite-svn'
-NeoBundle 'taka84u9/unite-git'
-NeoBundle 'ujihisa/unite-colorscheme'
-" vimshell
-NeoBundle 'Shougo/vimshell.vim'
-" SQLUtilities
-NeoBundle 'SQLUtilities', {
-            \    'depends': 'Align'
-            \}
-" 緊急地震速報 on Vim
-"NeoBundle 'haya14busa/eew.vim' "Windowsで上手く動かせなかった...
-" NicoNico like comments on Vim
-NeoBundle 'haya14busa/niconicomment.vim'
+" Dein.vimの初期化
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-""colorscheme---
-NeoBundle 'tomasr/molokai'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'github-theme'
-NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'rhysd/vim-color-splatoon'
+    " plugins {{{
+    " Interactive command execution in Vim.
+    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+    " A better JSON for Vim
+    call dein#add('elzr/vim-json')
+    " PukiWiki記法シンタックスハイライト
+    call dein#add('ytsunetsune/vim-pukiwiki-syntax')
+    " Add CSS3 syntax support
+    call dein#add('hail2u/vim-css3-syntax')
+    " HTML5 omnicomplete and syntax
+    call dein#add('othree/html5.vim')
+    " Vastly improved Javascript indentation and syntax support in Vim.
+    call dein#add('pangloss/vim-javascript')
+    " Syntax file for jQuery
+    call dein#add('nono/jquery.vim')
+    " Source Explorer, TagList, NERD Tree to be an IDE
+    call dein#add('wesleyche/Trinity')
+    " exploring the source code based on tags
+    call dein#add('wesleyche/SrcExpl')
+    " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+    call dein#add('taglist.vim')
+    " A tree explorer plugin for vim
+    call dein#add('scrooloose/nerdtree')
+    " PHP 5.6 syntax highlight for vim
+    call dein#add('StanAngeloff/php.vim')
+    " Open URI with your favorite browser
+    call dein#add('tyru/open-browser.vim')
+    " Next generation completion framework
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Konfekt/FastFold')
+    " The neocomplete source for PHP
+    call dein#add('violetyk/neocomplete-php.vim')
+    " simple memo plugin for Vim.
+    call dein#add('glidenote/memolist.vim')
+    " Realtime preview by Vim
+    call dein#add('kannokanno/previm')
+    " Typescript syntax files for Vim
+    call dein#add('leafgarland/typescript-vim')
+    " インデントに色を付けて見やすくする
+    call dein#add('nathanaelkane/vim-indent-guides')
+    " ログファイルを色づけしてくれる
+    call dein#add('AnsiEsc.vim')
+    " make benchmark result of your vimrc
+    call dein#add('mattn/benchvimrc-vim')
+    " Provides database access to many dbms
+    call dein#add('dbext.vim')
+    " A vim javascript indent script
+    call dein#add('jiangmiao/simple-javascript-indenter')
+    " Adjust Gvim font size via keypresses
+    call dein#add('drmikehenry/vim-fontsize')
+    " 行末の半角スペースを可視化
+    call dein#add('bronson/vim-trailing-whitespace')
+    " 括弧囲みの編集操作
+    call dein#add('tpope/vim-surround')
+    " Smartyのシンタクスハイライト
+    call dein#add('sifue/smarty.vim')
+    " markdownのシンタクスハイライトのためのプラグイン
+    call dein#add('godlygeek/tabular')
+    call dein#add('plasticboy/vim-markdown')
+    " Blade用
+    call dein#add('xsbeats/vim-blade')
+    " Unite
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/neomru.vim')
+    call dein#add('kmnk/vim-unite-svn')
+    call dein#add('taka84u9/unite-git')
+    call dein#add('ujihisa/unite-colorscheme')
+    " vimshell
+    call dein#add('Shougo/vimshell.vim')
+    " SQLUtilities
+    call dein#add('vim-scripts/SQLUtilities')
+    call dein#add('vim-scripts/Align')
+    " NicoNico like comments on Vim
+    call dein#add('haya14busa/niconicomment.vim')
 
-call neobundle#end()
-"}}}
+    "colorscheme---
+    call dein#add('tomasr/molokai')
+    call dein#add('altercation/vim-colors-solarized')
+    call dein#add('vim-scripts/github-theme')
+    call dein#add('cocopon/iceberg.vim')
+    call dein#add('w0ng/vim-hybrid')
+    call dein#add('rhysd/vim-color-splatoon')
+
+    "}}}
+    call dein#end()
+
+    if dein#check_install()
+        call dein#install()
+    endif
+
+endif
 
 "--------------- UniteStartup --------------- {{{
 " vim-startify を unite.vim で代替してみる - C++でゲームプログラミング
@@ -451,10 +450,6 @@ let g:neocomplete#enable_at_startup = 1
 
 "--------------- vim-indent-guides --------------- {{{
 let g:indent_guides_enable_on_vim_startup = 1
-"}}}
-
-"--------------- vim-auto-save --------------- {{{
-"let g:auto_save = 1
 "}}}
 
 "--------------- vim-javascript --------------- {{{
