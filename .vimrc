@@ -247,6 +247,7 @@ NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'tyru/open-browser.vim'
 " Next generation completion framework
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Konfekt/FastFold'
 " The neocomplete source for PHP
 NeoBundle 'violetyk/neocomplete-php.vim'
 " simple memo plugin for Vim.

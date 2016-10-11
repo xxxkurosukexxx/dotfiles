@@ -30,6 +30,8 @@ set guifontwide=VL\ Gothic:h9
 set columns=200
 set lines=55
 
+set transparency=5
+autocmd GUIEnter * set transparency=240
 
 "--------------- スキーム ---------------{{{1
 " https://github.com/tomasr/molokai
