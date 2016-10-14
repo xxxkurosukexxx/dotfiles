@@ -1,0 +1,64 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby ts=2 sw=2 sts=2 et :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "larryli/wily64"
+
+  config.vm.synced_folder "mnt", "/vagrant"
+
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+    DOTDEBLIST="/etc/apt/sources.list.d/dotdeb.list"
+    sudo touch $DOTDEBLIST
+    echo "deb http://packages.dotdeb.org jessie all" | sudo tee -a $DOTDEBLIST
+    echo "deb-src http://packages.dotdeb.org jessie all" | sudo tee -a $DOTDEBLIST
+    sudo wget https://www.dotdeb.org/dotdeb.gpg
+    sudo apt-key add dotdeb.gpg
+    sudo sed -i'~' -E "s@http://(..\.)?(archive|security)\.ubuntu\.com/ubuntu@http://ftp.jaist.ac.jp/pub/Linux/ubuntu@g" /etc/apt/sources.list
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password passw0rd"
+    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password passw0rd"
+    sudo apt-get install -y \
+      apache2 php7.0 libapache2-mod-php7.0 php7.0-common php7.0-cli php7.0-mbstring mysql-common mysql-server mysql-client \
+      autoconf automake lua5.2 luajit liblua5.2-0 liblua5.2-dev libperl5.20 libperl-dev python-dev python3-dev tcl tcl-dev
+
+    curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+    git clone https://github.com/xxxkurosukexxx/dotfiles.git
+    ln -s ~/dotfiles/.vimrc ~/.vimrc
+    mkdir -p ~/.vim
+    sudo ln -s /home/vagrant/.vimrc /root/.vimrc
+    sudo ln -s /home/vagrant/.vim /root/.vim
+
+    cd /usr/local/src
+    sudo chmod a+w .
+    git clone https://github.com/vim/vim.git
+    cd vim
+    ./configure \
+      --with-features=huge \
+      --disable-darwin \
+      --disable-selinux \
+      --enable-fail-if-missing \
+      --enable-luainterp \
+      --enable-perlinterp=dynamic \
+      --enable-pythoninterp \
+      --enable-python3interp \
+      --enable-tclinterp \
+      --enable-rubyinterp \
+      --enable-cscope \
+      --enable-multibyte \
+      --enable-xim \
+      --enable-fontset \
+      --with-compiledby=xxxkurosukexxx \
+      --enable-gui=no \
+      --prefix=/usr/local
+    make && sudo make install
+    vim +qall > /dev/null 2>&1
+
+    echo "Setup Finish!!"
+  SHELL
+end
