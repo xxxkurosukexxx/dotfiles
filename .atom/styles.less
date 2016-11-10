@@ -1,26 +1,39 @@
 /**
  * My Stylesheet
  */
- @lessFilePathPrefix: 'styles';
+
+// true or false
+@enable: true;
+// 'kotori', 'maki', 'other'
+@mode: 'maki';
+// when mode = other, set lessFilesList's use index.
+@bkid: 1;
+
+@lessFilePathPrefix: 'styles';
+@lessFilesList: 'miku',
+                '99b983892094b5c6d2fc3736e15da7d1',
+                '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
+                '48039_vocaloid_hatsune_miku',
+                '40063_vocaloid_hatsune_miku',
+                'll',
+                '10721936814_38822fdd52_o',
+                'vocaloid_gloves_hatsune_miku_rainbows_twintails_simple_background',
+                'WZCd1XK',
+                'vocaloid-hatsune-miku-girl-kimono-petals-3840x2400',
+                'vocaloid_hatsune_miku_long_hai_2560x1440',
+                '38289737',
+                'lo-2551745-54836104_p0',
+                'e00fd38b50310075668fcbe732231df1943401361386758911',
+                'f0080272_57289fcd69b25',
+                ;
+
 .bkCfg() {
-    @lessFilesList: 'miku',
-                    '99b983892094b5c6d2fc3736e15da7d1',
-                    '3840x2160-hatsune_miku_vocaloid_twintails_anime_gray-26887',
-                    '48039_vocaloid_hatsune_miku',
-                    '40063_vocaloid_hatsune_miku',
-                    'll',
-                    '10721936814_38822fdd52_o',
-                    'vocaloid_gloves_hatsune_miku_rainbows_twintails_simple_background',
-                    'WZCd1XK',
-                    'vocaloid-hatsune-miku-girl-kimono-petals-3840x2400',
-                    'vocaloid_hatsune_miku_long_hai_2560x1440',
-                    '38289737',
-                    'lo-2551745-54836104_p0',
-                    'e00fd38b50310075668fcbe732231df1943401361386758911',
-                    'f0080272_57289fcd69b25',
-                    ;
-    @useFile: extract(@lessFilesList, 13);
-    @import (multiple,reference) '@{lessFilePathPrefix}/@{useFile}';
+    @useFile: extract(@lessFilesList, @bkid);
+    @import (reference) '@{lessFilePathPrefix}/@{useFile}';
+    background: @img @imgposX @imgposY / cover;
+    atom-workspace {
+        background-color: transparent;
+    }
 }
 .textShadow() {
     @base: lighten(rgba(0, 0, 0, 0.9), 5%);
@@ -37,36 +50,45 @@
     text-shadow: @@use,
 }
 .kotori() {
-    @import (multiple,reference) '@{lessFilePathPrefix}/lo-2551745-54836104_p0';
-    @import (multiple,reference) '@{lessFilePathPrefix}/logo';
-    @import (multiple,reference) '@{lessFilePathPrefix}/kotori';
-    @import (multiple,reference) '@{lessFilePathPrefix}/kotoriProf';
+    @import (reference) '@{lessFilePathPrefix}/lo-2551745-54836104_p0';
+    @import (multiple, reference) '@{lessFilePathPrefix}/logo';
+    @import (reference) '@{lessFilePathPrefix}/kotori';
+    @import (reference) '@{lessFilePathPrefix}/kotoriProf';
     background: @kotoriProf calc(100% - 1px) calc(100% - 5px),
                 @logo left top / 990px,
                 @kotori left bottom / 500px,
                 @img @imgposX @imgposY / cover;
+    .skeleton();
 }
 .maki() {
-    @import (multiple,reference) '@{lessFilePathPrefix}/LoveLive_maki_20150801_01';
-    @import (multiple,reference) '@{lessFilePathPrefix}/logo';
-    @import (multiple,reference) '@{lessFilePathPrefix}/makiProf';
+    @import (reference) '@{lessFilePathPrefix}/LoveLive_maki_20150801_01';
+    @import (multiple, reference) '@{lessFilePathPrefix}/logo';
+    @import (reference) '@{lessFilePathPrefix}/makiProf';
     background: @makiProf right bottom,
                 @logo left top / 990px,
                 @img @imgposX @imgposY / cover;
+    .skeleton();
 }
-body {
-    .bkCfg();
-    //.kotori();
-    .maki();
-    //background: @img @imgposX @imgposY / cover;
+.skeleton() {
+    atom-workspace {
+        background-color: fadeout(darken(#b8545c, 50%), 50%);
+    }
+}
+.main(@enable, @mode) when (@enable = true) {
+    &when(@mode = 'kotori') {
+        .kotori();
+    }
+    &when(@mode = 'maki') {
+        .maki();
+    }
+    &when(@mode = 'other') {
+        .bkCfg();
+    }
     background-attachment: fixed;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     atom-workspace {
-        //background-color: darken(#115, 10%);
-        background-color: fadeout(darken(#b8545c, 10%), 50%);
-        //background-color: transparent;
         atom-workspace-axis {
             atom-pane-resize-handle.vertical {
                 background: rgba(51, 51, 51, 0.8);
@@ -109,6 +131,7 @@ body {
                         }
                         span.invisible-character {
                             text-shadow: none;
+                            color: lighten(#514b43, 10%);
                         }
                     }
                     .highlight .region {
@@ -125,6 +148,9 @@ body {
             opacity: 0.9;
         }
     }
+}
+body {
+    .main(@enable, @mode);
 }
 
 // Styles for the markdown preview.

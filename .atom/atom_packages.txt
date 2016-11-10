@@ -25,6 +25,7 @@ language-ini
 language-powershell
 language-smarty
 language-velocity
+language-viml
 laravel
 linter
 linter-eslint
@@ -47,6 +48,7 @@ processing
 processing-autocomplete
 processing-language
 project-manager
+regex-railroad-diagram
 sass-autocompile
 save-session
 show-ideographic-space

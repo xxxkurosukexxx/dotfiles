@@ -1,5 +1,7 @@
 "*":
   "activate-power-mode":
+    autoToggle: false
+    comboMode: {}
     particles:
       size: {}
       spawnCount: {}
@@ -22,7 +24,25 @@
       "minimap-pigments"
       "pigments"
       "color-picker"
+      "autocomplete-paths"
+      "linter-eslint"
+      "linter"
+      "linter-php"
+      "linter-tslint"
+      "background-tips"
+      "welcome"
+      "atom-typescript"
+      "blade-snippets"
+      "emmet"
+      "language-blade"
+      "laravel"
+      "processing"
+      "processing-autocomplete"
+      "processing-language"
+      "open-on-github"
+      "package-generator"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-dark-ui-slim"
       "earthsung-by-jackson-syntax"
@@ -40,6 +60,10 @@
   "git-diff":
     showIconsInEditorGutter: true
   "git-plus": {}
+  "highlight-selected":
+    highlightBackground: true
+    ignoreCase: true
+    lightTheme: true
   linter: {}
   "linter-php": {}
   "linter-sass-lint":
