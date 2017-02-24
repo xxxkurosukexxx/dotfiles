@@ -45,7 +45,7 @@
     telemetryConsent: "no"
     themes: [
       "atom-dark-ui-slim"
-      "earthsung-by-jackson-syntax"
+      "atom-material-syntax-dark"
     ]
   editor:
     fontFamily: "Source Han Code JP"

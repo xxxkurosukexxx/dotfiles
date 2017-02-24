@@ -2,6 +2,10 @@ activate-power-mode
 atom-beautify
 atom-dark-ui-slim
 atom-jshint
+atom-material-syntax
+atom-material-syntax-dark
+atom-material-syntax-light
+atom-material-ui
 atom-monokai
 atom-typescript
 autocomplete-emojis
@@ -27,6 +31,7 @@ language-smarty
 language-velocity
 language-viml
 laravel
+less-autocompile
 linter
 linter-eslint
 linter-php
@@ -41,6 +46,7 @@ minimap-highlight-selected
 minimap-pigments
 octocat-syntax
 open-recent
+open-unsupported-files
 pdf-view
 pigments
 pretty-json
@@ -49,6 +55,7 @@ processing-autocomplete
 processing-language
 project-manager
 regex-railroad-diagram
+restart-atom
 sass-autocompile
 save-session
 show-ideographic-space

@@ -7,7 +7,7 @@
 // 'kotori', 'maki', 'other'
 @mode: 'maki';
 // when mode = other, set lessFilesList's use index.
-@bkid: 1;
+@bkid: 2;
 
 @lessFilePathPrefix: 'styles';
 @lessFilesList: 'miku',
@@ -36,7 +36,7 @@
     }
 }
 .textShadow() {
-    @base: lighten(rgba(0, 0, 0, 0.9), 5%);
+    @base: lighten(rgba(0, 0, 0, 0.9), 10%);
     @normal: 0 0 1px black,
              1px 1px 1px @base,
              2px 2px 2px fadeout(@base, 25%),
@@ -71,7 +71,7 @@
 }
 .skeleton() {
     atom-workspace {
-        background-color: fadeout(darken(#b8545c, 50%), 50%);
+        background-color: fadeout(darken(#b8545c, 50%), 35%);
     }
 }
 .main(@enable, @mode) when (@enable = true) {
@@ -101,7 +101,7 @@
             div.settings-view {
                 .textShadow();
                 .btn, .setting-title {
-                    color: lighten(#aaa, 10%);
+                    //color: lighten(#aaa, 10%);
                 }
                 .setting-description {
                     color: darken(#aaa, 10%);
@@ -115,15 +115,15 @@
             }
         }
         atom-workspace-axis.vertical {
-            opacity: 0.8;
+            opacity: 0.85;
             atom-text-editor {
-                color: #fde;
+                //color: #fde;
                 &.editor {
                     .line.cursor-line {
                         background: rgba(200, 120, 120, 0.3);
                     }
                     .syntax--comment {
-                        color: lighten(saturate(#7B9AD5, 50%), 10%);
+                        color: lighten(saturate(#877, 10%), 5%);
                     }
                     .line {
                         span {
@@ -131,21 +131,25 @@
                         }
                         span.invisible-character {
                             text-shadow: none;
-                            color: lighten(#514b43, 10%);
+                            color: lighten(#514b43, 1%);
                         }
                     }
                     .highlight .region {
-                        background-color: fadeout(lighten(pink, 5%), 50%);
+                        //background-color: fadeout(lighten(pink, 5%), 50%);
                     }
                     .line-number {
-                        color: lighten(#7b7265, 30%);
+                        color: lighten(#7b7265, 5%);
                         text-shadow: 1px 1px 0 black;
                     }
                 }
             }
         }
         .tree-view, atom-panel-container.left, atom-panel.tool-panel {
-            opacity: 0.9;
+            //background-color: fadeout(darken(#b8545c, 90%), 80%);
+            opacity: 0.85;
+        }
+        .list-group li:not(.list-nested-item), .list-tree li:not(.list-nested-item), .list-group li.list-nested-item > .list-item, .list-tree li.list-nested-item > .list-item {
+            color: #bbb;
         }
     }
 }
@@ -196,4 +200,9 @@ div.status-bar-left, div.title, div.tree-view-scroller {
 div.git-log {
     font-family: @jp-font-style !important;
     font-size: inherit;
+}
+
+// Git Controll
+.git-control .files .file .icon.check {
+    opacity: 0.1;
 }
