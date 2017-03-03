@@ -7,3 +7,5 @@ dev
 npm-debug.log
 packages/
 projects.cson
+blob-store/*
+!.gitkeep

@@ -49,6 +49,7 @@ open-recent
 open-unsupported-files
 pdf-view
 pigments
+platformio-ide-terminal
 pretty-json
 processing
 processing-autocomplete

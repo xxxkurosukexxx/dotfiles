@@ -31,10 +31,12 @@
     @useFile: extract(@lessFilesList, @bkid);
     @import (reference) '@{lessFilePathPrefix}/@{useFile}';
     background: @img @imgposX @imgposY / cover;
+
     atom-workspace {
         background-color: transparent;
     }
 }
+
 .textShadow() {
     @base: lighten(rgba(0, 0, 0, 0.9), 10%);
     @normal: 0 0 1px black,
@@ -49,6 +51,7 @@
     @use: 'normal';
     text-shadow: @@use,
 }
+
 .kotori() {
     @import (reference) '@{lessFilePathPrefix}/lo-2551745-54836104_p0';
     @import (multiple, reference) '@{lessFilePathPrefix}/logo';
@@ -60,6 +63,7 @@
                 @img @imgposX @imgposY / cover;
     .skeleton();
 }
+
 .maki() {
     @import (reference) '@{lessFilePathPrefix}/LoveLive_maki_20150801_01';
     @import (multiple, reference) '@{lessFilePathPrefix}/logo';
@@ -69,18 +73,22 @@
                 @img @imgposX @imgposY / cover;
     .skeleton();
 }
+
 .skeleton() {
     atom-workspace {
-        background-color: fadeout(darken(#b8545c, 50%), 35%);
+        background-color: fadeout(darken(#b8545c, 20%), 50%);
     }
 }
+
 .main(@enable, @mode) when (@enable = true) {
     &when(@mode = 'kotori') {
         .kotori();
     }
+
     &when(@mode = 'maki') {
         .maki();
     }
+
     &when(@mode = 'other') {
         .bkCfg();
     }
@@ -88,55 +96,76 @@
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+
     atom-workspace {
         atom-workspace-axis {
-            atom-pane-resize-handle.vertical {
-                background: rgba(51, 51, 51, 0.8);
-                height: 4px;
-                margin-top: -2px;
+            atom-pane-resize-handle {
+                background: rgba(128, 128, 128, 0.8);
+
+                &.vertical {
+                    height: 2px;
+                }
+
+                &.horizontal {
+                    width: 2px;
+                }
             }
+
             span {
                 .textShadow();
             }
+
             div.settings-view {
                 .textShadow();
-                .btn, .setting-title {
+
+                .btn,
+                .setting-title {
                     //color: lighten(#aaa, 10%);
                 }
+
                 .setting-description {
                     color: darken(#aaa, 10%);
                 }
+
                 ::shadow .placeholder-text {
                     color: lighten(#555, 25%);
                 }
             }
+
             div.title {
                 .textShadow();
             }
         }
+
         atom-workspace-axis.vertical {
             opacity: 0.85;
+
             atom-text-editor {
                 //color: #fde;
                 &.editor {
                     .line.cursor-line {
                         background: rgba(200, 120, 120, 0.3);
                     }
+
                     .syntax--comment {
                         color: lighten(saturate(#877, 10%), 5%);
                     }
+
                     .line {
                         span {
                             .textShadow();
                         }
+
                         span.invisible-character {
                             text-shadow: none;
                             color: lighten(#514b43, 1%);
                         }
                     }
+
                     .highlight .region {
                         //background-color: fadeout(lighten(pink, 5%), 50%);
                     }
+
                     .line-number {
                         color: lighten(#7b7265, 5%);
                         text-shadow: 1px 1px 0 black;
@@ -144,38 +173,59 @@
                 }
             }
         }
-        .tree-view, atom-panel-container.left, atom-panel.tool-panel {
-            //background-color: fadeout(darken(#b8545c, 90%), 80%);
+
+        .tree-view,
+        atom-panel-container.left,
+        atom-panel.tool-panel {
+            background-color: fadeout(darken(#078, 24%), 80%);
             opacity: 0.85;
         }
-        .list-group li:not(.list-nested-item), .list-tree li:not(.list-nested-item), .list-group li.list-nested-item > .list-item, .list-tree li.list-nested-item > .list-item {
+
+        .list-group li.list-nested-item > .list-item,
+        .list-group li:not(.list-nested-item),
+        .list-tree li.list-nested-item > .list-item,
+        .list-tree li:not(.list-nested-item) {
             color: #bbb;
         }
     }
 }
+
 body {
     .main(@enable, @mode);
 }
-
 // Styles for the markdown preview.
 @font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
 .markdown-preview.markdown-preview {
     font-family: @font-family;
     letter-spacing: 0.08em;
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: @font-family;
     }
+
     h1 {
         margin: 50px 0 25px;
     }
+
     h2 {
         border-bottom: 2px solid #ddd;
         margin: 50px 0 25px;
         padding-bottom: 10px;
     }
-    h3, h4, h5, h6 {
+
+    h3,
+    h4,
+    h5,
+    h6 {
         margin: 40px 0 25px;
     }
+
     blockquote {
         margin: 25px 0;
         padding-left: 20px;
@@ -183,20 +233,27 @@ body {
         font-style: italic;
         font-size: inherit;
         line-height: 1.5;
+
         p {
             font-size: inherit;
         }
     }
+
     li {
         margin-bottom: 1em;
     }
 }
+
 // Optimize the font for Japanese
 // Default font << Source Han Code JP + Hiragino + Meiryo
 @jp-font-style: 'Source Han Code JP', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-div.status-bar-left, div.title, div.tree-view-scroller {
+
+div.status-bar-left,
+div.title,
+div.tree-view-scroller {
     font-family: @jp-font-style;
 }
+
 div.git-log {
     font-family: @jp-font-style !important;
     font-size: inherit;
