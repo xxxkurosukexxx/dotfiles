@@ -100,15 +100,19 @@
     atom-workspace {
         atom-workspace-axis {
             atom-pane-resize-handle {
-                background: rgba(128, 128, 128, 0.8);
+                background: rgba(100, 100, 100, 0.8);
 
                 &.vertical {
-                    height: 2px;
+                    height: 3px;
                 }
 
                 &.horizontal {
-                    width: 2px;
+                    width: 3px;
                 }
+            }
+
+            .tree-view-resize-handle {
+                background: rgba(100, 100, 100, 0.8);
             }
 
             span {
@@ -177,8 +181,8 @@
         .tree-view,
         atom-panel-container.left,
         atom-panel.tool-panel {
-            background-color: fadeout(darken(#078, 24%), 80%);
-            opacity: 0.85;
+            //background-color: fadeout(darken(#078, 24%), 80%);
+            opacity: 0.9;
         }
 
         .list-group li.list-nested-item > .list-item,
