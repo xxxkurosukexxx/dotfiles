@@ -10,6 +10,11 @@
   "atom-beautify":
     _analyticsUserId: "78918bf0-678f-4860-8e13-1d88e31b1685"
     php_fixers: "-phpdoc_no_package"
+  "atom-clock":
+    dateFormat: " L(dd) LT"
+    locale: "ja"
+    refreshInterval: 15
+    showClockIcon: true
   "atom-typescript": {}
   autosave:
     enabled: true
@@ -17,30 +22,41 @@
     audioBeep: false
     closeEmptyWindows: false
     disabledPackages: [
-      "wrap-guide"
-      "linter-sass-lint"
-      "spell-check"
-      "save-session"
-      "minimap-pigments"
-      "pigments"
-      "color-picker"
       "autocomplete-paths"
-      "linter-eslint"
-      "linter"
-      "linter-php"
-      "linter-tslint"
       "background-tips"
-      "welcome"
-      "atom-typescript"
       "blade-snippets"
+      "color-picker"
       "emmet"
       "language-blade"
       "laravel"
-      "processing"
-      "processing-autocomplete"
-      "processing-language"
+      "linter-eslint"
+      "linter-php"
+      "linter-sass-lint"
+      "linter-tslint"
+      "linter"
       "open-on-github"
       "package-generator"
+      "processing-autocomplete"
+      "processing-language"
+      "processing"
+      "save-session"
+      "spell-check"
+      "welcome"
+      "whitespace"
+      "wrap-guide"
+      "deprecation-cop"
+      "language-mustache"
+      "language-objective-c"
+      "language-hyperlink"
+      "language-go"
+      "language-csharp"
+      "language-c"
+      "language-clojure"
+      "language-perl"
+      "activate-power-mode"
+      "archive-view"
+      "pdf-view"
+      "autoflow"
     ]
     telemetryConsent: "no"
     themes: [
@@ -81,6 +97,11 @@
       "minimap-autohideDecorationsZIndex": 0
       pigments: true
       pigmentsDecorationsZIndex: 0
+  "platformio-ide-terminal":
+    core:
+      scrollback: 10000
+    toggles:
+      autoClose: true
   "sass-autocompile": {}
   "spell-check": {}
   "symbols-tree-view":
@@ -101,6 +122,10 @@
     sortAscending: false
     sortBy: "File"
   "tree-view":
-    hideVcsIgnoredFiles: true
+    hideVcsIgnoredFiles: false
   welcome:
     showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "

@@ -76,7 +76,7 @@
 
 .skeleton() {
     atom-workspace {
-        background-color: fadeout(darken(#b8545c, 20%), 50%);
+        background-color: fadeout(darken(#b8545c, 20%), 55%);
     }
 }
 
@@ -152,7 +152,7 @@
                     }
 
                     .syntax--comment {
-                        color: lighten(saturate(#877, 10%), 5%);
+                        color: lighten(saturate(#877, 10%), 10%);
                     }
 
                     .line {
@@ -190,6 +190,15 @@
         .list-tree li.list-nested-item > .list-item,
         .list-tree li:not(.list-nested-item) {
             color: #bbb;
+        }
+
+        .atom-clock {
+            font-size: 14px;
+            color: darken(pink, 18%);
+            text-shadow: 0 0 1px darken(pink, 25%), 0 0 1px darken(pink, 35%);
+            .icon::before {
+                top: 0;
+            }
         }
     }
 }
@@ -253,6 +262,7 @@ body {
 @jp-font-style: 'Source Han Code JP', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 
 div.status-bar-left,
+div.status-bar-right,
 div.title,
 div.tree-view-scroller {
     font-family: @jp-font-style;

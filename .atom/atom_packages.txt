@@ -1,5 +1,6 @@
 activate-power-mode
 atom-beautify
+atom-clock
 atom-dark-ui-slim
 atom-jshint
 atom-material-syntax
@@ -13,6 +14,7 @@ autocomplete-paths
 blade-snippets
 color-picker
 compare-files
+docblockr
 earthsung-by-jackson-syntax
 editorconfig
 emmet
@@ -23,7 +25,9 @@ git-log
 git-plus
 gl-light-syntax
 highlight-selected
+js-refactor
 language-apache
+language-batch
 language-blade
 language-ini
 language-powershell
@@ -55,6 +59,8 @@ processing
 processing-autocomplete
 processing-language
 project-manager
+qolor
+refactor
 regex-railroad-diagram
 restart-atom
 sass-autocompile
