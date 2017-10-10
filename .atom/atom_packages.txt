@@ -12,6 +12,7 @@ atom-typescript
 autocomplete-emojis
 autocomplete-paths
 blade-snippets
+bootstrap-3-snippetset
 color-picker
 compare-files
 docblockr
@@ -23,6 +24,7 @@ file-types
 git-control
 git-log
 git-plus
+gitlab
 gl-light-syntax
 highlight-selected
 js-refactor
@@ -59,6 +61,7 @@ processing
 processing-autocomplete
 processing-language
 project-manager
+pure-syntax
 qolor
 refactor
 regex-railroad-diagram
@@ -75,4 +78,5 @@ tabs-to-spaces
 tag
 todo-show
 tortoise-svn
+vim-mode-plus
 
