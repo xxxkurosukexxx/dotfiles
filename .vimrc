@@ -236,7 +236,7 @@ if dein#load_state(s:dein_dir)
     " exploring the source code based on tags
     call dein#add('wesleyche/SrcExpl')
     " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-    call dein#add('taglist.vim')
+    call dein#add('vim-scripts/taglist.vim')
     " A tree explorer plugin for vim
     call dein#add('scrooloose/nerdtree')
     " PHP 5.6 syntax highlight for vim
@@ -257,11 +257,11 @@ if dein#load_state(s:dein_dir)
     " インデントに色を付けて見やすくする
     call dein#add('nathanaelkane/vim-indent-guides')
     " ログファイルを色づけしてくれる
-    call dein#add('AnsiEsc.vim')
+    call dein#add('vim-scripts/AnsiEsc.vim')
     " make benchmark result of your vimrc
     call dein#add('mattn/benchvimrc-vim')
     " Provides database access to many dbms
-    call dein#add('dbext.vim')
+    call dein#add('vim-scripts/dbext.vim')
     " A vim javascript indent script
     call dein#add('jiangmiao/simple-javascript-indenter')
     " Adjust Gvim font size via keypresses
